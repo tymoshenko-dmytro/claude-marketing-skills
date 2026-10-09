@@ -1,14 +1,14 @@
-# Claude Marketing Skills: an AI growth team for Claude Code
+# Claude Marketing Skills: AI agents for marketing in Claude Code
 
 [![Release](https://img.shields.io/github/v/release/tymoshenko-dmytro/claude-marketing-skills)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#installation)
 
-Claude marketing skills that turn Claude Code into a senior growth marketer, with a team behind it. Ten agents research competitors, pull ads from the public libraries, read Ahrefs and GA4, screenshot funnels, make ad images and videos, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one.
+Claude Code skills that turn Claude into an AI growth team. Ten agents research competitors, pull ads from the public libraries, read Ahrefs and GA4, screenshot funnels, make ad images and videos, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one. Install them as a Claude Code plugin or with `npx skills`.
 
 Works with [Claude Code](https://code.claude.com) and any agent that supports the [Agent Skills](https://agentskills.io) format.
 
-Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Head of Growth at Palabra.ai and ex-CEO of Eightify. These skills came out of a real B2B SaaS growth team in 2026. The company-specific parts are taken out.
+Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Head of Growth at Palabra.ai and ex-CEO of Eightify.
 
 ![Claude Marketing Skills: ten agents with job titles, each a Claude Code skill](docs/images/cover.png)
 
@@ -19,15 +19,13 @@ Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Hea
 You can write a skill in an evening. Making one that works on real data takes months of fixing what goes wrong. These skills already contain those fixes:
 
 - **They do the work, not give advice.** Each skill connects to a real source (Ahrefs, GA4, Meta, LinkedIn and Google ad libraries, Parallel, a real browser, OpenAI images, ElevenLabs) and returns a file you can use: a dossier, a report, screenshots, images, a video.
-- **They know the traps.** For example: LinkedIn shows impressions only for ads shown in the EU. A name search in its library returns other companies' ads. Ahrefs' paid-traffic estimates are not reliable. GA4 sign-up events can double count. Each skill handles these cases so that you don't learn them the hard way.
+- **They know the traps.** Each skill already handles the cases where an ad library, Ahrefs or GA4 gives misleading data.
 - **Every fact has a source.** Research skills link each claim to the page it came from, so you can check the work before you act on it.
 - **Setup takes minutes.** The `connect` skill walks you through each key, keeps the keys out of the chat, and tests each one with a free request.
 - **They work as one team.** The research lead runs the researcher, the paid-media analyst and the SEO lead together. The critic reviews the copy of every other skill.
 - **They are templates.** Every skill ends with an **Adapt it** section, so it learns your rules, your funnel and your brand.
 
-They work well alongside [Marketing Skills by Corey Haines](https://github.com/coreyhaines31/marketingskills): his skills give Claude the marketing frameworks, and these give it access to data and tools.
-
-## Meet the team
+## Meet the team: 10 AI marketing agents
 
 | Agent | Skill | What it does | Works with |
 |---|---|---|---|
@@ -98,7 +96,7 @@ cp claude-marketing-skills/agents/copy-critic.md ~/.claude/agents/
 
 Ask Claude: **"Set up the kit for competitor research"**. The `connect` skill creates a private keys file, helps you get each key, and checks every connection with a free request.
 
-## Usage
+## How to use Claude Code for marketing
 
 Ask in plain words. Claude picks the right agent:
 
@@ -115,13 +113,13 @@ Ask in plain words. Claude picks the right agent:
 
 You can also run a skill directly: `/competitor-research`, `/ads-parser`, `/ga4-reports`.
 
-## Skill categories
+## Claude Code skills by category
 
 ### Research and intelligence
 - `competitor-research`: full competitor dossier (runs the next three)
 - `parallel-research`: deep, sourced web research
-- `ads-parser`: competitor ads from the public libraries
-- `ahrefs-seo`: SEO data for any domain
+- `ads-parser`: a Claude ads skill that pulls competitor ads from the public libraries
+- `ahrefs-seo`: a Claude SEO skill with Ahrefs data for any domain
 
 ### Measurement and UX
 - `ga4-reports`: GA4 reports from a plain question
@@ -154,7 +152,6 @@ Good work by others. Read before installing, same rule as above.
 
 | What | Why |
 |---|---|
-| [Marketing Skills](https://github.com/coreyhaines31/marketingskills) by Corey Haines (MIT) | `product-marketing` creates a product-context file the other skills (and `copy-critic`) read; also CRO, copywriting, SEO audit, emails, A/B tests |
 | Anthropic document skills (`docx`, `pdf`, `pptx`, `xlsx`) | decks, reports and spreadsheets as files, available in Claude apps |
 | [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) | videos rendered from HTML/CSS; pairs with `ads-video-library` |
 | [Higgsfield skills](https://github.com/higgsfield-ai/skills) (MIT) | generative video and image ads |
