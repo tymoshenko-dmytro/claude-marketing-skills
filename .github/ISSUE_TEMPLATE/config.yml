@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or idea
+    url: https://github.com/tymoshenko-dmytro/claude-marketing-skills/discussions
+    about: Ask how to use or adapt a skill, or propose a new one.
+  - name: Security problem
+    url: https://github.com/tymoshenko-dmytro/claude-marketing-skills/security/advisories/new
+    about: Report it privately, not as an issue.

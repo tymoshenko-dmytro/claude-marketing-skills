@@ -1,0 +1,30 @@
+name: Bug report
+description: A skill or script gave a wrong result or failed
+labels: [bug]
+body:
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options: [competitor-research, parallel-research, ads-parser, ahrefs-seo, ga4-reports, funnel-screenshots, image-gen, motion-card, ads-video-library, plain-copy, copy-critic, connect, other]
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: What you asked Claude
+      placeholder: "Research competitor example.com and build a knowledge base"
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened, and what you expected
+      description: Paste the error. Remove any API keys and client data first.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Kit version and Claude Code version
+      placeholder: "v0.2.0, Claude Code 2.x, macOS"

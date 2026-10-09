@@ -1,6 +1,12 @@
-# Marketing Agent Kit
+# Marketing Agent Kit: Claude Code marketing skills for growth teams
+
+[![Release](https://img.shields.io/github/v/release/tymoshenko-dmytro/claude-marketing-skills)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#install)
 
 **Free Claude Code skills that let one marketer do the work of a growth team.**
+
+![Marketing Agent Kit: 11 Claude Code marketing skills and a copy critic](docs/images/cover.png)
 
 [Claude Code](https://code.claude.com) is Anthropic's AI agent. Each skill in this kit teaches it one job that a growth team usually gives to a specialist, from competitor research and SEO data to ad images and copy review. You give Claude the task and decide what to do with the result. Long jobs, like a full competitor dossier, run in the background while you work on something else.
 
@@ -54,7 +60,7 @@ Once the kit is installed, plain requests are enough. Claude picks the skill fro
 **As a plugin** (Claude Code terminal or desktop app):
 
 ```
-/plugin marketplace add tymoshenko-dmytro/marketing-agent-kit
+/plugin marketplace add tymoshenko-dmytro/claude-marketing-skills
 /plugin install marketing-agent-kit@marketing-agent-kit
 ```
 
@@ -63,9 +69,9 @@ Skills are then available as `/marketing-agent-kit:<skill>`; Claude also picks t
 **Or copy what you want:**
 
 ```bash
-git clone https://github.com/tymoshenko-dmytro/marketing-agent-kit.git
-cp -R marketing-agent-kit/skills/ads-parser ~/.claude/skills/        # one skill, all projects
-cp marketing-agent-kit/agents/copy-critic.md ~/.claude/agents/       # the critic
+git clone https://github.com/tymoshenko-dmytro/claude-marketing-skills.git
+cp -R claude-marketing-skills/skills/ads-parser ~/.claude/skills/        # one skill, all projects
+cp claude-marketing-skills/agents/copy-critic.md ~/.claude/agents/       # the critic
 ```
 
 Use `<project>/.claude/skills/` instead of `~/.claude/skills/` to scope a skill to one project.
@@ -110,6 +116,10 @@ Good work by others. Read before installing, same rule as above.
 
 - Poster selection and the frame-0 technique in `ads-video-library` are adapted from [/brag](https://github.com/latent-spaces/brag) by Shunit Haviv Hakimi (MIT).
 - Connection facts checked against vendor documentation on 2026-10-01.
+
+## Questions and contributions
+
+Questions and ideas: [Discussions](https://github.com/tymoshenko-dmytro/claude-marketing-skills/discussions). Bugs: [open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues/new/choose). How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
