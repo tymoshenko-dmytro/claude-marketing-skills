@@ -1,6 +1,7 @@
 ---
 name: image-gen
-description: Generate or edit marketing images with OpenAI gpt-image-2 through a bundled stdlib-only CLI — blog covers, landing-page illustrations, ad visuals, social graphics, product mockups, inpainting and multi-image compositions — choosing quality (low / medium / high) by whether the user needs drafts or a final asset, and checking every rendered word. Use whenever someone asks to create, draw, render, edit or inpaint an image. Triggers: "generate an image", "make a cover", "illustration for the landing", "edit this picture", "inpaint".
+description: >-
+  Generate or edit marketing images with OpenAI gpt-image-2 through a bundled stdlib-only CLI — blog covers, landing-page illustrations, ad visuals, social graphics, product mockups, inpainting and multi-image compositions — choosing quality (low / medium / high) by whether the user needs drafts or a final asset, and checking every rendered word. Use whenever someone asks to create, draw, render, edit or inpaint an image. Triggers: "generate an image", "make a cover", "illustration for the landing", "edit this picture", "inpaint".
 ---
 
 # Image generation — gpt-image-2

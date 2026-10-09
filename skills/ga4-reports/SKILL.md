@@ -1,6 +1,7 @@
 ---
 name: ga4-reports
-description: Pull and explain Google Analytics 4 reports — traffic by source and channel, period comparisons, daily breakdowns, conversion events, signup and purchase funnels — through the GA4 MCP server, with a REST fallback when the MCP hangs. Knows the GA4 reporting traps (cross-day attribution, users vs events, Ads vs GA date mismatch). Use when someone asks about website traffic, GA4, sessions, conversions, funnel drop-off or channel performance. Triggers: "pull GA4", "traffic last month", "conversions by source", "funnel report", "Google Analytics".
+description: >-
+  Pull and explain Google Analytics 4 reports — traffic by source and channel, period comparisons, daily breakdowns, conversion events, signup and purchase funnels — through the GA4 MCP server, with a REST fallback when the MCP hangs. Knows the GA4 reporting traps (cross-day attribution, users vs events, Ads vs GA date mismatch). Use when someone asks about website traffic, GA4, sessions, conversions, funnel drop-off or channel performance. Triggers: "pull GA4", "traffic last month", "conversions by source", "funnel report", "Google Analytics".
 ---
 
 # GA4 reports

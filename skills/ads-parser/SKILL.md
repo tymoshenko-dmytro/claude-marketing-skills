@@ -1,6 +1,7 @@
 ---
 name: ads-parser
-description: Collect and analyze a company's advertising from public ad-transparency libraries — LinkedIn Ad Library, Google Ads Transparency Center, Meta Ad Library — with exact ad texts, run dates, disclosed impressions and links to every ad. Use when someone asks what ads a company runs, how a competitor advertises, or wants a creative teardown from the libraries. Triggers: "what ads does X run", "competitor ads", "ad library", "collect X's creatives".
+description: >-
+  Collect and analyze a company's advertising from public ad-transparency libraries — LinkedIn Ad Library, Google Ads Transparency Center, Meta Ad Library — with exact ad texts, run dates, disclosed impressions and links to every ad. Use when someone asks what ads a company runs, how a competitor advertises, or wants a creative teardown from the libraries. Triggers: "what ads does X run", "competitor ads", "ad library", "collect X's creatives".
 ---
 
 # Ads parser

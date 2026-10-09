@@ -1,6 +1,7 @@
 ---
 name: connect
-description: Set up the services this kit's skills use — API keys, Google login, MCP servers — step by step, without keys ever passing through the chat. Creates one private keys file, walks the user through getting each key, registers MCP servers in Claude Code, and runs a health check that tests every key with a free request. Use when someone installs the kit, asks "what do I need to connect", "set up Ahrefs / GA4 / Parallel", "why doesn't X work", or a skill fails on a missing key. Triggers: "connect", "setup", "doctor", "check my keys".
+description: >-
+  Set up the services this kit's skills use — API keys, Google login, MCP servers — step by step, without keys ever passing through the chat. Creates one private keys file, walks the user through getting each key, registers MCP servers in Claude Code, and runs a health check that tests every key with a free request. Use when someone installs the kit, asks "what do I need to connect", "set up Ahrefs / GA4 / Parallel", "why doesn't X work", or a skill fails on a missing key. Triggers: "connect", "setup", "doctor", "check my keys".
 ---
 
 # Connect

@@ -1,6 +1,7 @@
 ---
 name: parallel-research
-description: Web research through Parallel.ai — quick sourced web search (seconds) or deep research tasks (minutes to an hour) that return long cited reports. Use for company dossiers, market scans, funding/team/PR inventories, "what changed this year" sweeps, and any exhaustive fact-finding where every claim needs a URL. Triggers: "deep research on X", "run this through Parallel", "build a dossier on X", "research X with sources".
+description: >-
+  Web research through Parallel.ai — quick sourced web search (seconds) or deep research tasks (minutes to an hour) that return long cited reports. Use for company dossiers, market scans, funding/team/PR inventories, "what changed this year" sweeps, and any exhaustive fact-finding where every claim needs a URL. Triggers: "deep research on X", "run this through Parallel", "build a dossier on X", "research X with sources".
 ---
 
 # Parallel research

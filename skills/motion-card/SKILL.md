@@ -1,6 +1,7 @@
 ---
 name: motion-card
-description: Build a short branded video from code instead of filming or generating it — an end card, a title card, an animated offer or CTA card, a product-UI panel with animated text, a logo sting, a lower third — rendered from HTML/CSS/GSAP to MP4 with HyperFrames, with voiceover and sound effects from ElevenLabs. Exact text, deterministic, re-renderable for free. Use when a piece must be pixel-exact and repeatable, or a set of cards must share one template. Triggers: "make an end card", "title card", "animated CTA", "logo sting", "simple video with voiceover". Not for generative footage of people or scenes.
+description: >-
+  Build a short branded video from code instead of filming or generating it — an end card, a title card, an animated offer or CTA card, a product-UI panel with animated text, a logo sting, a lower third — rendered from HTML/CSS/GSAP to MP4 with HyperFrames, with voiceover and sound effects from ElevenLabs. Exact text, deterministic, re-renderable for free. Use when a piece must be pixel-exact and repeatable, or a set of cards must share one template. Triggers: "make an end card", "title card", "animated CTA", "logo sting", "simple video with voiceover". Not for generative footage of people or scenes.
 ---
 
 # Motion card

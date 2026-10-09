@@ -1,6 +1,7 @@
 ---
 name: ahrefs-seo
-description: Pull raw SEO data from Ahrefs for any domain — organic keywords, top pages, backlinks, referring domains, Domain Rating, traffic history, anchors, organic competitors, keyword volumes — through the Ahrefs MCP server or a script fallback, while keeping API-unit spend under control. Use when someone asks for a domain's organic traffic, backlinks, SEO metrics of a competitor, or keyword volumes. Triggers: "check in Ahrefs", "organic traffic of X", "backlinks of X", "keyword volumes".
+description: >-
+  Pull raw SEO data from Ahrefs for any domain — organic keywords, top pages, backlinks, referring domains, Domain Rating, traffic history, anchors, organic competitors, keyword volumes — through the Ahrefs MCP server or a script fallback, while keeping API-unit spend under control. Use when someone asks for a domain's organic traffic, backlinks, SEO metrics of a competitor, or keyword volumes. Triggers: "check in Ahrefs", "organic traffic of X", "backlinks of X", "keyword volumes".
 ---
 
 # Ahrefs SEO data

@@ -1,104 +1,154 @@
-# Marketing Agent Kit: Claude Code marketing skills for growth teams
+# Claude Marketing Skills: an AI growth team for Claude Code
 
 [![Release](https://img.shields.io/github/v/release/tymoshenko-dmytro/claude-marketing-skills)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#install)
+[![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#installation)
 
-**Free Claude Code skills that let one marketer do the work of a growth team.**
+Claude marketing skills that turn Claude Code into a senior growth marketer, with a team behind it. Ten agents research competitors, pull ads from the public libraries, read Ahrefs and GA4, screenshot funnels, make ad images and videos, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one.
 
-![Marketing Agent Kit: 11 Claude Code marketing skills and a copy critic](docs/images/cover.png)
+Works with [Claude Code](https://code.claude.com) and any agent that supports the [Agent Skills](https://agentskills.io) format.
 
-[Claude Code](https://code.claude.com) is Anthropic's AI agent. Each skill in this kit teaches it one job that a growth team usually gives to a specialist, from competitor research and SEO data to ad images and copy review. You give Claude the task and decide what to do with the result. Long jobs, like a full competitor dossier, run in the background while you work on something else.
+Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Head of Growth at Palabra.ai and ex-CEO of Eightify. These skills came out of a real B2B SaaS growth team in 2026. The company-specific parts are taken out.
 
-Built from real work at a B2B SaaS growth team in 2026, with the company-specific parts taken out so you can adapt each skill to your own work.
+![Claude Marketing Skills: ten agents with job titles, each a Claude Code skill](docs/images/cover.png)
 
-## The jobs, and who usually does them
+**Contributions welcome.** Found a fix or have a new skill? [Open a PR](CONTRIBUTING.md). Question or problem? [Open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues).
 
-| Usually a job for | What you get | Skill | Needs |
+## Why install these instead of writing your own?
+
+You can write a skill in an evening. Making one that works on real data takes months of fixing what goes wrong. These skills already contain those fixes:
+
+- **They do the work, not give advice.** Each skill connects to a real source (Ahrefs, GA4, Meta, LinkedIn and Google ad libraries, Parallel, a real browser, OpenAI images, ElevenLabs) and returns a file you can use: a dossier, a report, screenshots, images, a video.
+- **They know the traps.** For example: LinkedIn shows impressions only for ads shown in the EU. A name search in its library returns other companies' ads. Ahrefs' paid-traffic estimates are not reliable. GA4 sign-up events can double count. Each skill handles these cases so that you don't learn them the hard way.
+- **Every fact has a source.** Research skills link each claim to the page it came from, so you can check the work before you act on it.
+- **Setup takes minutes.** The `connect` skill walks you through each key, keeps the keys out of the chat, and tests each one with a free request.
+- **They work as one team.** The research lead runs the researcher, the paid-media analyst and the SEO lead together. The critic reviews the copy of every other skill.
+- **They are templates.** Every skill ends with an **Adapt it** section, so it learns your rules, your funnel and your brand.
+
+They work well alongside [Marketing Skills by Corey Haines](https://github.com/coreyhaines31/marketingskills): his skills give Claude the marketing frameworks, and these give it access to data and tools.
+
+## Meet the team
+
+| Agent | Skill | What it does | Works with |
 |---|---|---|---|
-| a competitive-intelligence analyst | A dossier on a competitor from just its website address: product, pricing, customers, community, ads, SEO, team and press, as a knowledge base and an HTML report. | [`competitor-research`](skills/competitor-research/SKILL.md) | Parallel, SearchApi, Ahrefs |
-| a desk researcher | Web research on a question you set, with links to its sources: a quick search in minutes, or a deep report that can take up to an hour. | [`parallel-research`](skills/parallel-research/SKILL.md) | Parallel |
-| a paid-media analyst | The ads a company has in the public LinkedIn, Google and Meta ad libraries, with each ad's text, run dates and link, and impressions where the library shows them. | [`ads-parser`](skills/ads-parser/SKILL.md) | SearchApi |
-| an SEO specialist | Organic keywords, top pages, backlinks, Domain Rating and search volumes for any website, with a guide to what each request costs on your Ahrefs plan. | [`ahrefs-seo`](skills/ahrefs-seo/SKILL.md) | Ahrefs (paid) |
-| a web analyst | Google Analytics 4 reports from a plain question, including period comparisons and where people drop out of your funnel, with notes on the reporting mistakes people usually make. | [`ga4-reports`](skills/ga4-reports/SKILL.md) | Google login |
-| a UX researcher | A high-resolution iPhone screenshot of each screen in a competitor's quiz or onboarding funnel, including the paywall and discount pop-ups, up to the payment form, which it leaves empty. | [`funnel-screenshots`](skills/funnel-screenshots/SKILL.md) | Python (Playwright installs itself) |
-| a designer | Ad images, blog covers and landing-page illustrations made with OpenAI GPT Image, as drafts or final versions, and a check that any text in the picture came out as written. | [`image-gen`](skills/image-gen/SKILL.md) | OpenAI key |
-| a motion designer | Short animated video cards, such as an end card, a title card or an animated call to action, with voiceover. They are built from code, so every word appears exactly as written and you can edit and render them again. | [`motion-card`](skills/motion-card/SKILL.md) | Node 22+, FFmpeg, ElevenLabs |
-| a creative-operations manager | Your finished ad videos named and filed by month, language and type, and listed in a CSV or Google Sheet, with a cover image and a review page for approving or rejecting each one. | [`ads-video-library`](skills/ads-video-library/SKILL.md) | FFmpeg |
-| an editor | Edits that make your copy clear to a stranger in one read and stop it sounding AI-written, plus a critic agent that gives each line a verdict and a rewrite. | [`plain-copy`](skills/plain-copy/SKILL.md) + [`copy-critic`](agents/copy-critic.md) | — |
+| **Head of Market Intelligence** | [`competitor-research`](skills/competitor-research/) | Builds a full dossier on a competitor from its domain: product, pricing, customers, ads, SEO, team and press. It runs the other research agents and gives you a knowledge base and an HTML report | Parallel, SearchApi, Ahrefs |
+| **Research Analyst** | [`parallel-research`](skills/parallel-research/) | Does deep research on any question: a quick sourced search in seconds, or a cited report in 5 to 60 minutes | Parallel |
+| **Paid Media Analyst** | [`ads-parser`](skills/ads-parser/) | Gets every ad a company runs in the LinkedIn, Google and Meta libraries: text, images, videos, run dates, and impressions where the library shows them | SearchApi |
+| **SEO Lead** | [`ahrefs-seo`](skills/ahrefs-seo/) | Gets keywords, volumes, difficulty, top pages, backlinks and Domain Rating for any site. A guide shows what each request costs | Ahrefs |
+| **Growth Analyst** | [`ga4-reports`](skills/ga4-reports/) | Answers GA4 questions asked in plain words: traffic, channels, period comparisons and funnel drop-off | Google login |
+| **UX Researcher** | [`funnel-screenshots`](skills/funnel-screenshots/) | Goes through a competitor's quiz or onboarding funnel and takes a retina iPhone screenshot of every screen, up to the paywall | Playwright (installs itself) |
+| **Designer** | [`image-gen`](skills/image-gen/) | Makes ad images, blog covers and illustrations, and checks that the text in each picture came out as written | OpenAI |
+| **Motion Designer** | [`motion-card`](skills/motion-card/) | Makes short video cards with a voiceover. They are built from code, so every word appears exactly as written and you can change it | HyperFrames, ElevenLabs |
+| **Creative Ops Manager** | [`ads-video-library`](skills/ads-video-library/) | Names your ad videos, files them and lists them in a catalogue. It also makes a review page where each video gets approved or rejected | FFmpeg, Google Drive (optional) |
+| **Senior Marketing Copywriter** | [`plain-copy`](skills/plain-copy/) + [`copy-critic`](agents/copy-critic.md) | Rewrites copy so a stranger understands it in one read. A critic agent gives every line a verdict and a rewrite | none |
+| *Onboarding* | [`connect`](skills/connect/) | Sets up keys, Google login and MCP servers, then runs a health check | none |
 
-[`connect`](skills/connect/SKILL.md) sets all of this up: it walks you through each key, registers the MCP servers and tests every key with a free request.
-
-**The critic.** [`copy-critic`](agents/copy-critic.md) reads ad copy like a stranger scrolling a feed and returns a verdict and a rewrite for every line. It started as a critic trained on one founder's comments; [here is how to train your own on your corrections](docs/train-your-critic.md).
-
-**Connections.** One guide per service with access, cost, setup, a check and the gotchas: [connections/](connections/README.md). Google Ads, GA4, Ahrefs, Stripe, BigQuery, Playwright, Parallel, SearchApi, ElevenLabs, OpenAI Images, HyperFrames and Higgsfield.
-
-## Things to ask
-
-Once the kit is installed, plain requests are enough. Claude picks the skill from what you ask:
-
-- "Research competitor example.com and build a knowledge base"
-- "What ads is Example running on LinkedIn and Meta right now?"
-- "Which pages bring example.com the most organic traffic?"
-- "Compare last month's signups by channel with the month before"
-- "Screenshot every step of the quiz at example.com/start, including the paywall"
-- "Make two ad images for this headline, draft quality"
-- "Make a 10-second end card that says 'Spring sale: 20% off', with a female voiceover"
-- "Name these ad videos, add them to the catalogue and make me a review page"
-- "Would a stranger understand this headline?"
-
-## Read before you install
-
-**Don't install skills blindly, this kit included.** Every installed skill adds its description to every conversation and competes for Claude's attention, and a skill written for someone else's workflow quietly does things their way. Treat these as templates:
-
-1. Read the `SKILL.md` of the ones you want. They're short.
-2. Install only what you'll use this month.
-3. Each skill ends with **"Adapt it"**. Do that part: the skills get good when they hold *your* corrections, your report rules, your funnel events, your copy patterns and your brand.
-
-## Install
-
-**As a plugin** (Claude Code terminal or desktop app):
+## How the team works together
 
 ```
+                         ┌───────────────────────────────┐
+                         │            connect            │
+                         │  keys · MCP servers · checks  │
+                         └───────────────┬───────────────┘
+                                         │
+        ┌────────────────────────────────┼────────────────────────────────┐
+        ▼                                ▼                                ▼
+ ┌──────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐
+ │ RESEARCH             │   │ MEASUREMENT               │   │ CREATIVE                  │
+ │                      │   │                           │   │                           │
+ │ competitor-research  │   │ ga4-reports               │   │ image-gen                 │
+ │   ├ parallel-research│   │ funnel-screenshots        │   │ motion-card               │
+ │   ├ ads-parser       │   │                           │   │   └ ads-video-library     │
+ │   └ ahrefs-seo       │   │                           │   │                           │
+ └──────────┬───────────┘   └─────────────┬─────────────┘   └─────────────┬─────────────┘
+            │                             │                               │
+            └──────────── findings, ads, screens, drafts ─────────────────┘
+                                          ▼
+                         ┌───────────────────────────────┐
+                         │  plain-copy  ↔  copy-critic   │
+                         │  every line gets a verdict    │
+                         └───────────────────────────────┘
+```
+
+## Installation
+
+### Option 1: Claude Code plugin (recommended)
+
+```bash
 /plugin marketplace add tymoshenko-dmytro/claude-marketing-skills
 /plugin install marketing-agent-kit@marketing-agent-kit
 ```
 
-Skills are then available as `/marketing-agent-kit:<skill>`; Claude also picks them up automatically from what you ask.
+### Option 2: skills CLI
 
-**Or copy what you want:**
+```bash
+npx skills add tymoshenko-dmytro/claude-marketing-skills                     # all skills
+npx skills add tymoshenko-dmytro/claude-marketing-skills --skill ads-parser  # one skill
+```
+
+### Option 3: clone and copy
 
 ```bash
 git clone https://github.com/tymoshenko-dmytro/claude-marketing-skills.git
-cp -R claude-marketing-skills/skills/ads-parser ~/.claude/skills/        # one skill, all projects
-cp claude-marketing-skills/agents/copy-critic.md ~/.claude/agents/       # the critic
+cp -R claude-marketing-skills/skills/ads-parser ~/.claude/skills/
+cp claude-marketing-skills/agents/copy-critic.md ~/.claude/agents/
 ```
-
-Use `<project>/.claude/skills/` instead of `~/.claude/skills/` to scope a skill to one project.
 
 ## First run
 
-Ask Claude: **"Set up the kit for competitor research"** (or whatever you want to do). The `connect` skill creates a private keys file, walks you through getting each key, registers MCP servers and runs a health check:
+Ask Claude: **"Set up the kit for competitor research"**. The `connect` skill creates a private keys file, helps you get each key, and checks every connection with a free request.
 
-```bash
-python3 skills/connect/scripts/kit.py init           # ~/.config/marketing-agent-kit/.env, chmod 600
-python3 skills/connect/scripts/kit.py doctor --live  # what works, what's missing
+## Usage
+
+Ask in plain words. Claude picks the right agent:
+
 ```
+"Research competitor example.com and build a knowledge base"   → competitor-research
+"What ads is Example running on LinkedIn and Meta right now?"   → ads-parser
+"Which pages bring example.com the most organic traffic?"       → ahrefs-seo
+"Compare last month's sign-ups by channel with the month before" → ga4-reports
+"Screenshot every step of the quiz at example.com/start"        → funnel-screenshots
+"Make two ad images for this headline, draft quality"           → image-gen
+"Make a 10-second end card: 'Spring sale: 20% off'"             → motion-card
+"Would a stranger understand this headline?"                    → plain-copy + copy-critic
+```
+
+You can also run a skill directly: `/competitor-research`, `/ads-parser`, `/ga4-reports`.
+
+## Skill categories
+
+### Research and intelligence
+- `competitor-research`: full competitor dossier (runs the next three)
+- `parallel-research`: deep, sourced web research
+- `ads-parser`: competitor ads from the public libraries
+- `ahrefs-seo`: SEO data for any domain
+
+### Measurement and UX
+- `ga4-reports`: GA4 reports from a plain question
+- `funnel-screenshots`: every screen of a funnel, up to the paywall
+
+### Creative
+- `image-gen`: ad images, covers and illustrations
+- `motion-card`: video cards with a voiceover
+- `ads-video-library`: naming, catalogue and review page for ad videos
+
+### Copy
+- `plain-copy` and `copy-critic`: clear copy, a verdict and a rewrite for every line
+
+## Read before you install
+
+Install only the skills you will use this month. Every installed skill adds its description to every conversation. Then do the **Adapt it** part of each one: the skills work best once they hold your corrections, report rules, funnel events and brand.
 
 ## Keys and privacy
 
-- All keys live in **one file outside any repository**: `~/.config/marketing-agent-kit/.env` (template: [.env.example](.env.example)). You type them in yourself.
-- **Never paste keys into a chat**: chats are saved to disk. The scripts read the file and never print keys.
-- A server registered for a shared project (`kit.py mcp add … --scope project`) gets a `${VAR}` reference in `.mcp.json`, never the key itself.
-- Prefer OAuth where a service offers it, read-only permissions, and spending caps. Each connection guide says how.
-- Research outputs (`raw/`, `dist/`, catalogues) are in `.gitignore`, and `funnel-screenshots` keeps its browser session and typed values out of git wherever you save them. Keep client data out of your forks.
+All keys live in one file outside any repository: `~/.config/marketing-agent-kit/.env` (chmod 600). Never paste keys into a chat. Research output and catalogues are in `.gitignore`. [More on connections →](connections/README.md)
 
 ## Requirements
 
 - Python 3.9+ (scripts use the standard library only; Google Drive mode of `ads-video-library` needs `pip install google-auth requests`)
 - FFmpeg for `ads-video-library` and `motion-card`; Node.js 18+ for Playwright MCP, 22+ for HyperFrames; `gcloud` + `pipx` for Google services; ~400 MB for `funnel-screenshots` (its setup installs Playwright and Chromium)
 
-## What else I use (not included)
+## Works well with
 
 Good work by others. Read before installing, same rule as above.
 
@@ -117,9 +167,9 @@ Good work by others. Read before installing, same rule as above.
 - Poster selection and the frame-0 technique in `ads-video-library` are adapted from [/brag](https://github.com/latent-spaces/brag) by Shunit Haviv Hakimi (MIT).
 - Connection facts checked against vendor documentation on 2026-10-01.
 
-## Questions and contributions
+## Contributing
 
-Questions and ideas: [Discussions](https://github.com/tymoshenko-dmytro/claude-marketing-skills/discussions). Bugs: [open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues/new/choose). How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md).
+Found a way to improve a skill? Have a new one? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

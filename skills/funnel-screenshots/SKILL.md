@@ -1,6 +1,7 @@
 ---
 name: funnel-screenshots
-description: Walk a public quiz / onboarding funnel end to end in a real Chromium with iPhone emulation and capture every unique screen as a retina screenshot (1179×2556), then document the paywall, discount modals and the empty payment form — never typing payment data. Output is numbered PNGs, a step log and an INDEX.md. Use for competitor funnel teardowns, onboarding benchmarks, paywall research, or "screenshot every step of this quiz". Triggers: "screenshot this funnel", "walk this quiz", "capture the onboarding", "teardown their paywall".
+description: >-
+  Walk a public quiz / onboarding funnel end to end in a real Chromium with iPhone emulation and capture every unique screen as a retina screenshot (1179×2556), then document the paywall, discount modals and the empty payment form — never typing payment data. Output is numbered PNGs, a step log and an INDEX.md. Use for competitor funnel teardowns, onboarding benchmarks, paywall research, or "screenshot every step of this quiz". Triggers: "screenshot this funnel", "walk this quiz", "capture the onboarding", "teardown their paywall".
 ---
 
 # Funnel screenshots

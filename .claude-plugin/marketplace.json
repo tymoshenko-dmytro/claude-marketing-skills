@@ -1,6 +1,6 @@
 {
   "name": "marketing-agent-kit",
-  "description": "Marketing skills for Claude Code by Dmytro Tymoshenko: research, ads, SEO, analytics, creative.",
+  "description": "Claude Marketing Skills by Dmytro Tymoshenko: an AI growth team for Claude Code.",
   "owner": {
     "name": "Dmytro Tymoshenko"
   },
@@ -8,7 +8,7 @@
     {
       "name": "marketing-agent-kit",
       "source": "./",
-      "description": "Marketing skills for Claude Code: competitor research, ad libraries, SEO, GA4, image generation, ad-video library, plain copy, copy critic."
+      "description": "An AI growth team for Claude Code: research, ads, SEO, GA4, funnels, creative and copy, on your real data."
     }
   ]
 }

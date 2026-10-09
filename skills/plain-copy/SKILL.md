@@ -1,6 +1,7 @@
 ---
 name: plain-copy
-description: Write or edit marketing copy so a stranger understands it in one read and it doesn't sound machine-written — ads, banners, landing-page blocks, cold emails, support and retention messages, research reports. Removes AI patterns (rhetorical triples, punchy fragments, clever circumlocutions, invented authority), fixes numbers without context, keeps the author's voice. Use when writing or reviewing any customer-facing text, or when copy "sounds like AI", "is unclear", "too clever", "too long". Triggers: "make this plainer", "this sounds like AI", "edit this copy", "tighten this".
+description: >-
+  Write or edit marketing copy so a stranger understands it in one read and it doesn't sound machine-written — ads, banners, landing-page blocks, cold emails, support and retention messages, research reports. Removes AI patterns (rhetorical triples, punchy fragments, clever circumlocutions, invented authority), fixes numbers without context, keeps the author's voice. Use when writing or reviewing any customer-facing text, or when copy "sounds like AI", "is unclear", "too clever", "too long". Triggers: "make this plainer", "this sounds like AI", "edit this copy", "tighten this".
 ---
 
 # Plain copy

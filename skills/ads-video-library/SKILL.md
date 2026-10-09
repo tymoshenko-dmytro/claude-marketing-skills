@@ -1,6 +1,7 @@
 ---
 name: ads-video-library
-description: Name, store and catalogue finished ad videos — canonical file names, a poster frame for every video (optionally baked in as frame 0 so feeds and chats show it as the thumbnail), contact sheets for QA, storage under Month / Language / Type in a local folder or a Google shared drive, a CSV catalogue (plus an optional Google Sheet), and a gallery.html review page with approve / reject / notes. Use after rendering any batch of ad creatives — motion cards, UGC, demos, cut-downs. Triggers: "upload the renders", "catalogue these videos", "name these files", "publish the creatives", "make a review page". Not for rendering.
+description: >-
+  Name, store and catalogue finished ad videos — canonical file names, a poster frame for every video (optionally baked in as frame 0 so feeds and chats show it as the thumbnail), contact sheets for QA, storage under Month / Language / Type in a local folder or a Google shared drive, a CSV catalogue (plus an optional Google Sheet), and a gallery.html review page with approve / reject / notes. Use after rendering any batch of ad creatives — motion cards, UGC, demos, cut-downs. Triggers: "upload the renders", "catalogue these videos", "name these files", "publish the creatives", "make a review page". Not for rendering.
 ---
 
 # Ads video library
