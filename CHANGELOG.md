@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.0 (2026-10-11)
+## v0.2.0 (2026-10-12)
 
 The kit is now called **Claude Marketing Skills**: an AI growth team for Claude Code.
 

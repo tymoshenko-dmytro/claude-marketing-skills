@@ -10,7 +10,9 @@ Works with [Claude Code](https://code.claude.com) and any agent that supports th
 
 Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Head of Growth at Palabra.ai and ex-CEO of Eightify.
 
-![Claude Marketing Skills: ten agents with job titles, each a Claude Code skill](docs/images/cover.png)
+https://github.com/user-attachments/assets/116f521c-f7db-45c3-a646-270dd013aecc
+
+*The ten agents at work, from competitor research to ads to analytics, in 70 seconds. Sound on.*
 
 **Contributions welcome.** Found a fix or have a new skill? [Open a PR](CONTRIBUTING.md). Question or problem? [Open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues).
 
@@ -26,6 +28,8 @@ You can write a skill in an evening. Making one that works on real data takes mo
 - **They are templates.** Every skill ends with an **Adapt it** section, so it learns your rules, your funnel and your brand.
 
 ## Meet the team: 10 AI marketing agents
+
+![Claude Marketing Skills: ten agents with job titles, each a Claude Code skill](docs/images/cover.png)
 
 | Agent | Skill | What it does | Works with |
 |---|---|---|---|
