@@ -13,6 +13,12 @@ Ahrefs' documented formula: **cost of a call = max(50, per-row cost × rows)**, 
 
 Plan pulls by *expected rows with data*, not by keywords sent. Select only the volume field you need. Push the floor into `where`. Cache every batch so a re-run never pays twice.
 
+## Where the cost of a call is reported
+
+- **API v3:** response headers. `x-api-units-cost-total-actual` = units consumed; `x-api-units-cost-total` = units the request should consume; `x-api-units-cost-row` = per-row cost; `x-api-rows` = rows returned; `x-api-cache` = `hit` / `miss` / `no_cache` (a cached response costs nothing). `curl -v` shows them. `ahrefs_api.py` and `kw.py` log the first one.
+- **MCP:** a second text block in the tool result, `{"apiUsageCosts": {"units-cost-total-actual": N}}`. `kw.py import` reads it when the saved output contains it.
+- **Either:** `subscription-info-limits-and-usage` before and after a batch (free).
+
 ## MCP transport quirks
 
 All three look the same from outside: `{"error": "internal server error"}`.

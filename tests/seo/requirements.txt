@@ -1,0 +1,8 @@
+# Test dependencies for tests/seo (the scripts themselves declare theirs inline for `uv run --script`).
+pytest>=8
+httpx>=0.27
+requests>=2.31
+google-auth>=2.30
+matplotlib>=3.8
+selectolax>=1.0
+playwright>=1.48   # imported by render_check.py; the tests never start a browser, no `playwright install` needed
