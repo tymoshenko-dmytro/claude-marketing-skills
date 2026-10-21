@@ -1,0 +1,100 @@
+/* video-moves: rigs and overlays for HyperFrames films (1920x1080). Brand-neutral.
+   Consolidated from a 24-move test reel after its first review round.
+
+   Colours belong to the FILM being edited, not to any brand. Each film sets the tokens in
+   its own stylesheet, AFTER this file, from the colours of its own material (its UI, its
+   illustration, its footage), e.g.:
+     :root { --mv-accent: <the film's accent>; --mv-accent-2: <its second colour>;
+             --mv-ink: <text on its cards>; --mv-muted: <secondary text>;
+             --mv-ground: <the ground behind its moving material>; }
+   --mv-accent marks only large things (numbers >= 48 px bold, borders, playheads), never
+   small text - check its contrast on the film's grounds. The defaults below are neutral
+   placeholders, not a house style. */
+:root {
+  --mv-accent: #2F6FED;        /* marks: label number, playhead, freeze border, focus brackets */
+  --mv-accent-2: #0F766E;      /* the second track colour (edit strip "B", scope bars) */
+  --mv-ink: #111827;           /* text on white cards */
+  --mv-muted: #5B6B7A;         /* secondary text on white (>= 4.5:1) */
+  --mv-muted-strong: #4A5866;  /* small labels on white */
+  --mv-ground: #111316;        /* scene ground behind moving material */
+  --mv-dip: #0B0C0E;           /* the scene-change dip */
+}
+.clip { position: absolute; inset: 0; }
+.scene { overflow: hidden; background: var(--mv-ground); }
+.A, .B { position: absolute; inset: 0; }
+
+/* ---------- rigs ---------- */
+/* 2D lens: CK.lens2d writes translate/rotate/scale; origin must be 0 0 */
+.lens { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; will-change: transform; }
+/* 3D: the stage holds the perspective (focal length); the camera moves the world */
+.stage { position: absolute; inset: 0; perspective-origin: 50% 50%; }
+.world { position: absolute; inset: 0; transform-style: preserve-3d; transform-origin: 960px 540px; will-change: transform; }
+/* never put filter / opacity<1 / overflow / clip-path / mask on .world - it flattens */
+.l3 { position: absolute; }
+.prop { filter: blur(1.2px); }                 /* near-lens props are a touch soft */
+.near, .far { will-change: filter; }           /* rack focus: blur the leaves */
+
+/* scene-change dip: a full-frame clip on its own track, opacity from render(t) */
+#dip { background: var(--mv-dip); opacity: 0; z-index: 90; pointer-events: none; }
+
+/* ---------- move label (teaching reels only) ---------- */
+.label {
+  position: absolute; left: 56px; bottom: 56px; z-index: 50; opacity: 0;
+  display: inline-flex; align-items: baseline; gap: 20px;
+  background: #FFFFFF; border-radius: 20px; padding: 18px 32px 22px;
+  box-shadow: 0 22px 54px -22px rgba(0, 0, 0, 0.55);
+}
+.label .num { font-size: 54px; font-weight: 700; color: var(--mv-accent); }   /* the accent only this large */
+.label .nm { font-size: 54px; font-weight: 650; color: var(--mv-ink); letter-spacing: -0.01em; }
+.label .term { font-size: 38px; font-weight: 500; color: var(--mv-muted); }
+
+/* ---------- readout pill: speed, clock, pause - one style, top-right ---------- */
+.readout { position: absolute; top: 44px; right: 52px; z-index: 40; background: #FFFFFF; color: var(--mv-ink);
+  border-radius: 14px; padding: 10px 24px; font-size: 48px; font-weight: 700; font-variant-numeric: tabular-nums;
+  box-shadow: 0 20px 50px -22px rgba(0, 0, 0, 0.6); }
+.readout.pausemark { opacity: 0; display: flex; gap: 14px; padding: 16px 22px; }
+.readout.pausemark i { display: block; width: 14px; height: 46px; background: var(--mv-ink); border-radius: 3px; }
+
+/* ---------- voice scope: a recording's envelope scrolling on story time ---------- */
+.scope { position: absolute; left: 800px; top: 930px; width: 640px; height: 92px; z-index: 40; background: #FFFFFF;
+  border-radius: 14px; box-shadow: 0 20px 50px -22px rgba(0, 0, 0, 0.6); display: flex; align-items: center; gap: 12px;
+  padding: 0 16px; }
+.scope .sl { font-size: 26px; font-weight: 600; color: var(--mv-muted-strong); }
+.scope canvas { display: block; }
+
+/* ---------- speed graph (picture only; the number lives in the readout) ---------- */
+.graph { position: absolute; bottom: 48px; right: 48px; z-index: 40; width: 400px; height: 180px; background: #FFFFFF;
+  border-radius: 18px; padding: 16px 20px; box-shadow: 0 20px 50px -22px rgba(0, 0, 0, 0.6); }
+.graph svg { display: block; }
+
+/* ---------- edit strip for J/L demos ---------- */
+.strip { position: absolute; z-index: 45; height: 110px; background: rgba(255, 255, 255, 0.96); border-radius: 14px;
+  box-shadow: 0 20px 50px -22px rgba(0, 0, 0, 0.6); }
+.strip .trk { position: absolute; left: 0; right: 0; height: 44px; }
+.strip .tl { position: absolute; left: 16px; top: 0; line-height: 44px; font-size: 28px; font-weight: 600; color: var(--mv-muted-strong); }
+.strip .sg { position: absolute; top: 0; height: 44px; line-height: 44px; border-radius: 8px; padding-left: 12px;
+  font-size: 26px; font-weight: 700; color: #FFFFFF; overflow: hidden; white-space: nowrap; }
+.strip .sg.a { background: #66737F; }
+.strip .sg.b { background: var(--mv-accent-2); }
+.strip .zone { position: absolute; top: 4px; bottom: 4px; background: color-mix(in srgb, var(--mv-accent) 16%, transparent);
+  border-left: 3px dashed var(--mv-accent); border-right: 3px dashed var(--mv-accent); }
+.strip .head { position: absolute; top: -6px; bottom: -6px; width: 4px; background: var(--mv-accent); border-radius: 2px; }
+
+/* ---------- rack focus brackets, freeze border, wipe edge, scrim, evening grade ---------- */
+.focus { position: absolute; z-index: 40; }
+.focus i { position: absolute; width: 46px; height: 46px; border: 0 solid var(--mv-accent);
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6)); }
+.focus i:nth-child(1) { left: 0; top: 0; border-left-width: 5px; border-top-width: 5px; }
+.focus i:nth-child(2) { right: 0; top: 0; border-right-width: 5px; border-top-width: 5px; }
+.focus i:nth-child(3) { left: 0; bottom: 0; border-left-width: 5px; border-bottom-width: 5px; }
+.focus i:nth-child(4) { right: 0; bottom: 0; border-right-width: 5px; border-bottom-width: 5px; }
+.freeze { position: absolute; inset: 0; z-index: 40; opacity: 0; border: 12px solid var(--mv-accent); }
+.wline { position: absolute; top: 0; bottom: 0; width: 4px; background: #FFFFFF; z-index: 40; opacity: 0;
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.7); }
+.scrim { position: absolute; inset: 0; z-index: 30; opacity: 1; pointer-events: none; }   /* background set per frame */
+.dusk { position: absolute; inset: 0; z-index: 30; background: #FF8A3D; mix-blend-mode: multiply; opacity: 0; pointer-events: none; }
+
+/* words that rise into place on story time */
+.rise .w { display: inline-block; }
+.w { opacity: 0; }
+.w.on { opacity: 1; }

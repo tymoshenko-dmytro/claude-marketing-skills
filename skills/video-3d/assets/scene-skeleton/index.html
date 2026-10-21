@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- video-3d scene skeleton: a seek-driven three.js scene in HyperFrames.
+     Copy this folder, set DURATION, then fill build() and renderAt(t) in assets/scene.js.
+     Rules: references/contract.md. Colours: set the --film-* tokens from the film's palette. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script>
+      // classic script: the runtime's first readiness check must already see the hold
+      window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady.scene = new Promise((res, rej) => { window.__sceneReady = res; window.__sceneFail = rej; });
+    </script>
+    <script type="importmap">{ "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/" } }</script>
+    <style>
+      :root { --film-ground-a: #1b2340; --film-ground-b: #0d1020; }   /* from the film, not a brand */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--film-ground-b); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #ground { position: absolute; inset: 0;
+        background: radial-gradient(90% 80% at 50% 40%, var(--film-ground-a), var(--film-ground-b)); }
+      #gl { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+      /* DOM labels: only opacity here; JS toggles visibility "hidden" / "" */
+      #labels { position: absolute; inset: 0; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="4"
+         data-width="1920" data-height="1080" data-no-timeline>
+      <div id="ground"></div>
+      <canvas id="gl" width="1920" height="1080" data-layout-allow-overflow="true"></canvas>
+      <div id="labels"></div>
+    </div>
+    <script type="module" src="assets/scene.js"></script>
+  </body>
+</html>
