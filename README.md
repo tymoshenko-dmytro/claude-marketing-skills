@@ -14,6 +14,8 @@ https://github.com/user-attachments/assets/116f521c-f7db-45c3-a646-270dd013aecc
 
 *The first ten agents at work, from competitor research to ads to analytics, in 70 seconds (v0.2). Sound on.*
 
+**The v2 film** (57 s): an SEO audit turned into a developer ticket, keyword research turned into a content plan, and the film that made itself. [Watch it](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.0.0/claude-marketing-skills-v2.mp4) · [with voiceover](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.0.0/claude-marketing-skills-v2-voice.mp4)
+
 **New in v2.0:** an SEO team of four (Search Console archive and weekly report, technical audit with a developer backlog, Ahrefs keyword research, SEO playbooks) and a video studio of seven (voice and sound, HyperFrames builds, 24 camera moves, three.js 3D, generated shots, QA). [What changed →](CHANGELOG.md)
 
 **Contributions welcome.** Found a fix or have a new skill? [Open a PR](CONTRIBUTING.md). Question or problem? [Open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues).
@@ -64,8 +66,8 @@ You can write a skill in an evening. Making one that works on real data takes mo
 | **Designer** | [`image-gen`](skills/image-gen/) | Makes ad images, blog covers and illustrations, and checks that the text in each picture came out as written | OpenAI |
 | **Video Producer** | [`video-studio`](skills/video-studio/) | Starts every video: picks the format (end card, launch film, UI walkthrough, a remake of a reference ad), writes the brief, holds the house laws and runs the six specialists below in order | the six below |
 | **Sound Designer** | [`video-sound`](skills/video-sound/) | Voiceover with a transcript check that every brand name is said right, music cut to the film's beat grid, effects from a library of 1,277 analysed CC0 sounds, a mix that ducks music per spoken line | ElevenLabs, sound library |
-| **Motion Developer** | [`video-build`](skills/video-build/) | Builds the film in code from measured audio timings, from your real product UI, with word-by-word captions in any language (Arabic and Hebrew too), and avoids the known render traps | HyperFrames |
-| **Editor** | [`video-moves`](skills/video-moves/) | 24 camera and editing moves (dolly zoom, whip pan, match cut, speed ramp, J and L cuts...) with when to use each, working code and the sound of each move | HyperFrames |
+| **Motion Designer** | [`video-build`](skills/video-build/) | Builds the film in code from measured audio timings, from your real product UI, with word-by-word captions in any language (Arabic and Hebrew too), and avoids the known render traps | HyperFrames |
+| **Video Editor** | [`video-moves`](skills/video-moves/) | 24 camera and editing moves (dolly zoom, whip pan, match cut, speed ramp, J and L cuts...) with when to use each, working code and the sound of each move | HyperFrames |
 | **3D Artist** | [`video-3d`](skills/video-3d/) | Real 3D in a film: logos as objects, data globes, particles, glTF models, post effects and rendered looks (ASCII, toon, halftone, pixel), every frame deterministic | three.js, HyperFrames |
 | **AI Video Artist** | [`video-generated`](skills/video-generated/) | Generated people, rooms and objects, with a doctrine that settles everything on cheap stills before paying for video | Atlas Cloud |
 | **Video QA Reviewer** | [`video-check`](skills/video-check/) | Checks every film before you see it: claims against the source, reading time per line, one-frame glitches at every cut, loudness, effects heard, a transcript, and an independent review by fresh agents | FFmpeg, Whisper |
