@@ -6,7 +6,9 @@ body:
     id: skill
     attributes:
       label: Skill
-      options: [competitor-research, parallel-research, ads-parser, ahrefs-seo, ga4-reports, funnel-screenshots, image-gen, motion-card, ads-video-library, plain-copy, copy-critic, connect, other]
+      options: [competitor-research, parallel-research, ads-parser, seo, gsc-insights, seo-tech-audit, ahrefs,
+                ga4-reports, funnel-screenshots, image-gen, video-studio, video-sound, video-build, video-moves,
+                video-3d, video-generated, video-check, ads-video-library, plain-copy, copy-critic, connect, other]
     validations:
       required: true
   - type: textarea

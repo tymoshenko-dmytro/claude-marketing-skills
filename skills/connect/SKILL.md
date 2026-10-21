@@ -33,8 +33,9 @@ Everything typed in a chat is saved in session transcripts on disk. So:
 3. **One service at a time:** open its guide in `connections/`, walk the user through getting access in plain steps (what to click, what plan is needed, what it costs), wait for them to save the key.
 4. `kit.py doctor --live` — confirm the key is accepted before moving on.
 5. MCP servers: `kit.py mcp add <name>`. For OAuth servers, tell the user to run `/mcp` in Claude Code → pick the server → Authenticate. A new server appears after restarting the session (desktop app: start a new session).
-6. Google services (GA4, Google Ads, BigQuery) use a gcloud login, not a key — follow `connections/ga4-mcp.md`. The login opens a browser: run it in the background and tell the user to sign in.
-7. Finish with `kit.py doctor --live` and a short table: what works, what's left, what it costs.
+6. Google services (GA4, Google Ads, BigQuery) use a gcloud login, not a key — follow `connections/ga4-mcp.md`. The login opens a browser: run it in the background and tell the user to sign in. Search Console uses a service account and a site config instead — `connections/search-console.md`.
+7. Video: `python3 ${CLAUDE_SKILL_DIR}/../video-sound/scripts/library.py install` downloads the sound library (~150 MB), then `library.py venv` builds its analysis environment. HyperFrames: `connections/hyperframes-cli.md`.
+8. Finish with `kit.py doctor --live` and a short table: what works, what's left, what it costs.
 
 ## Which skill needs what
 
@@ -42,21 +43,26 @@ Everything typed in a chat is saved in session transcripts on disk. So:
 |---|---|---|
 | parallel-research | `PARALLEL_API_KEY` (or the free Parallel Search MCP for search only) | free credits on signup |
 | ads-parser | `SEARCHAPI_KEY` | 100 free requests |
-| ahrefs-seo | Ahrefs MCP (OAuth or `AHREFS_MCP_KEY`) | paid Ahrefs plan, Lite or higher |
+| ahrefs | Ahrefs MCP (OAuth or `AHREFS_MCP_KEY`); for scripted keyword research either `AHREFS_API_KEY` (API v3, any paid plan from Lite) or MCP results imported into `kw.py` | paid Ahrefs plan, Lite or higher |
+| seo | nothing itself; routes to gsc-insights, seo-tech-audit and ahrefs | — |
+| gsc-insights | `uv`, a Search Console service account with Restricted access, a site config; optional Google Sheet, BigQuery, Slack | free |
+| seo-tech-audit | `uv`, the same site config; optional `CRUX_API_KEY`, `BING_WMT_API_KEY`, Chrome for the render check | free |
 | competitor-research | all three above | — |
 | ga4-reports | gcloud login + GA4 MCP | free |
 | image-gen | `OPENAI_API_KEY` | pay per image (~$0.006–0.21) |
 | ads-video-library | FFmpeg; optional Google service account for Drive | free |
 | funnel-screenshots | Python 3.10+; its `setup.sh` installs Playwright + Chromium | free |
-| motion-card | Node 22+, FFmpeg, HyperFrames, `ELEVENLABS_API_KEY` (paid plan for sound effects) | ElevenLabs Starter $6/mo |
+| video-studio, video-sound, video-build, video-moves, video-check | Node 22+, FFmpeg, HyperFrames CLI and skills, `ELEVENLABS_API_KEY` (paid plan for sound effects), the sound library (`video-sound/scripts/library.py install`), `uv` for its analysis venv, a Whisper CLI | ElevenLabs Starter $6/mo |
+| video-3d | the same, plus a GPU-capable Chrome for HyperFrames | free |
+| video-generated | `ATLAS_API_KEY` | pay per generation |
 | plain-copy, copy-critic | nothing | — |
 
-Optional extras with their own guides: Google Ads MCP, Stripe MCP, BigQuery, Playwright MCP, ElevenLabs, HyperFrames, Higgsfield.
+Optional extras with their own guides: Google Ads MCP, Stripe MCP, BigQuery, Playwright MCP, ElevenLabs, HyperFrames, Higgsfield, Slack.
 
 ## Safety defaults to recommend
 
 - **Read-only wherever possible.** GA4 and Google Ads MCP are read-only by design. Stripe: grant Read only; BigQuery: allow only `execute_sql_readonly`. Add deny rules for write tools (examples in each guide).
-- **Spending caps.** Ahrefs (monthly unit cap per key), ElevenLabs (credit quota per key), Parallel (a separate key for agents), OpenAI (project budget).
+- **Spending caps.** Ahrefs (monthly unit cap per key, plus `monthly_unit_cap` in the SEO site config), ElevenLabs (credit quota per key), Parallel (a separate key for agents), OpenAI (project budget), Atlas Cloud (top up small amounts).
 - **Separate keys for agents.** A key that only an agent uses can be revoked without breaking anything else.
 
 ## When something fails

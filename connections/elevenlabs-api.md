@@ -1,7 +1,7 @@
 # ElevenLabs
 
 **What it gives you:** voiceover (text to speech in 30–90+ languages, many voices) and generated sound effects — the audio layer of ad videos.
-**Used by:** `motion-card` (voiceover, sound library, speech check); voiceover for any video pipeline.
+**Used by:** `video-sound` (voiceover with a transcript and name check, generated sound effects); voiceover for any video pipeline.
 **Access:** API key (`ELEVENLABS_API_KEY`) for scripts; OAuth for the hosted MCP server.
 **Cost:** free tier 10k credits a month (no commercial licence; **sound effects are blocked on free**). Starter $6/mo with a commercial licence. API speech ~$0.08 per 1k characters on Multilingual v2 / v3, ~$0.04 on Flash. Sound effects ~$0.12 per minute.
 **Setup time:** ~5 minutes

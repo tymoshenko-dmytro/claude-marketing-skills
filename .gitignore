@@ -15,6 +15,10 @@ renders/
 catalog*.csv
 /competitor-*/
 brag-output*/
+jobs/
+*.sqlite
+video-library/
+*.zip
 
 # Python / OS
 __pycache__/

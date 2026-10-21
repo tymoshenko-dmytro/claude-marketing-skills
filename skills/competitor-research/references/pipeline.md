@@ -50,7 +50,7 @@ All agents in parallel. Each returns `{file, key_findings, gaps}` (all three req
 | community-producthunt | launches, upvotes, comments, directories | raw/community/producthunt.md |
 | community-forums | dev.to / Medium / Hugging Face / Stack Overflow / framework forums | raw/community/forums.md |
 | ads | per the **ads-parser** skill (three libraries + LinkedIn detail pages) | knowledge-base/05-ads-offers.md + raw/ads/* |
-| seo | per the **ahrefs-seo** skill (organic, top pages, referring domains, history; overlap with the user's domain if asked) | knowledge-base/06-seo.md + raw/seo/* |
+| seo | per the **ahrefs** skill (organic, top pages, referring domains, history; overlap with the user's domain if asked) | knowledge-base/06-seo.md + raw/seo/* |
 | team-roster | NO login: SERP `site:linkedin.com/in "{COMPANY}"` (profile titles) + company page + theorg / crunchbase snippets + hiring press → full table | raw/team/roster.md |
 | team-posts | SERP `site:linkedin.com/posts {COMPANY}` + founders' X accounts → the team's narratives | raw/team/posts-digest.md |
 

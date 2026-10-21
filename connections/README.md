@@ -1,6 +1,6 @@
 # Connections
 
-Every service the kit uses, one guide each: what it gives you, what it costs, how to get access, how to connect it to Claude Code, how to check it works, and what to watch out for. Facts checked against vendor docs on **2026-10-01** — services change, so each guide links to its sources.
+Every service the kit uses, one guide each: what it gives you, what it costs, how to get access, how to connect it to Claude Code, how to check it works, and what to watch out for. Facts checked against vendor docs on **2026-10-01**, new guides on **2026-10-21** — services change, so each guide links to its sources.
 
 Commands in these guides run from the kit's folder (`python3 skills/connect/scripts/kit.py …`). Installed as a plugin? Just ask Claude — the `connect` skill knows where its scripts are.
 
@@ -12,7 +12,11 @@ The fastest path is the **`connect` skill**: ask Claude "set up the kit" and it 
 |---|---|---|---|---|
 | Parallel.ai | deep web research with citations | API key (Search MCP works without one) | free credits on signup | [parallel-api.md](parallel-api.md) |
 | SearchApi.io | ad libraries: LinkedIn, Google, Meta | API key or OAuth MCP | 100 free requests | [searchapi.md](searchapi.md) |
-| Ahrefs | SEO data | OAuth or MCP key | paid plan, Lite+ ($129/mo) | [ahrefs-mcp.md](ahrefs-mcp.md) |
+| Ahrefs | SEO data, keyword research | OAuth or MCP key; optional API v3 key for scripts | paid plan, Lite+ ($129/mo) | [ahrefs-mcp.md](ahrefs-mcp.md) |
+| Google Search Console | your site's search data, index status per URL | service account (read-only) | free | [search-console.md](search-console.md) |
+| Chrome UX Report | real-user Core Web Vitals | API key | free | [crux-api.md](crux-api.md) |
+| Bing Webmaster Tools | Bing's view of your site (it also feeds AI search) | API key | free | [bing-webmaster.md](bing-webmaster.md) |
+| Slack | the weekly SEO post | connector or webhook | free | [slack.md](slack.md) |
 | Google Analytics 4 | traffic, conversions, funnels | gcloud login | free | [ga4-mcp.md](ga4-mcp.md) |
 | Google Ads | campaigns, spend, conversions (read-only) | gcloud login | free | [google-ads-mcp.md](google-ads-mcp.md) |
 | BigQuery | SQL over GA4 export and your own data | OAuth client or gcloud login | 1 TiB of queries free per month | [bigquery.md](bigquery.md) |
@@ -22,6 +26,7 @@ The fastest path is the **`connect` skill**: ask Claude "set up the kit" and it 
 | ElevenLabs | voiceover, sound effects | API key or OAuth MCP | free tier (no SFX) | [elevenlabs-api.md](elevenlabs-api.md) |
 | HyperFrames | videos rendered from HTML/CSS | none for local renders | free locally | [hyperframes-cli.md](hyperframes-cli.md) |
 | Higgsfield | generative image and video | browser login | credits | [higgsfield.md](higgsfield.md) |
+| Atlas Cloud | generated people, rooms and objects for video (Seedance, OmniHuman, Nano Banana) | API key | pay per generation | [atlas-cloud.md](atlas-cloud.md) |
 
 ## Three kinds of connection
 

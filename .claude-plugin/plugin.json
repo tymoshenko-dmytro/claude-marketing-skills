@@ -1,8 +1,8 @@
 {
   "name": "marketing-agent-kit",
   "displayName": "Claude Marketing Skills",
-  "version": "0.2.0",
-  "description": "An AI growth team for Claude Code: ten agents for competitor research, ad libraries, Ahrefs SEO, GA4, funnel screenshots, ad images, motion videos, ad-video catalogues and copy review, working on your real data.",
+  "version": "2.0.0",
+  "description": "An AI growth team for Claude Code: competitor research, ad libraries, a full SEO team (Search Console, technical audits, Ahrefs keyword research, playbooks), GA4, funnel screenshots, ad images, a video studio (voice, music, HyperFrames, camera moves, 3D, generated shots, QA) and copy review, working on your real data.",
   "author": {
     "name": "Dmytro Tymoshenko",
     "url": "https://www.linkedin.com/in/tymoshenko-dmytro"
@@ -11,15 +11,22 @@
   "keywords": [
     "ads",
     "ai-agents",
+    "ai-video",
     "claude-skills",
     "competitor-research",
     "copywriting",
     "ga4",
     "growth",
     "growth-team",
+    "hyperframes",
+    "keyword-research",
     "marketing",
     "marketing-skills",
-    "seo"
+    "motion-graphics",
+    "search-console",
+    "seo",
+    "technical-seo",
+    "video"
   ],
   "homepage": "https://github.com/tymoshenko-dmytro/claude-marketing-skills",
   "repository": "https://github.com/tymoshenko-dmytro/claude-marketing-skills"

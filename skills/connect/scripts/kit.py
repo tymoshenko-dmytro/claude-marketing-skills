@@ -34,6 +34,16 @@ ENV = pathlib.Path(os.path.expanduser(os.environ.get(
     "MARKETING_KIT_ENV", "~/.config/marketing-agent-kit/.env")))
 ADC = pathlib.Path.home() / ".config" / "gcloud" / "application_default_credentials.json"
 
+# every variable doctor reports, in the order of the template
+KEYS = ["PARALLEL_API_KEY", "SEARCHAPI_KEY", "AHREFS_MCP_KEY", "AHREFS_API_KEY",
+        "CRUX_API_KEY", "BING_WMT_API_KEY", "SLACK_WEBHOOK_URL",
+        "OPENAI_API_KEY", "ELEVENLABS_API_KEY", "ATLAS_API_KEY", "STRIPE_AGENT_KEY",
+        "GOOGLE_CLOUD_PROJECT", "GA4_PROPERTY_ID", "GOOGLE_ADS_LOGIN_CUSTOMER_ID"]
+SEO_DIR = pathlib.Path(os.path.expanduser(os.environ.get(
+    "SEO_SKILLS_CONFIG_DIR", "~/.config/marketing-agent-kit/seo")))
+VIDEO_LIBRARY = pathlib.Path(os.path.expanduser(os.environ.get(
+    "VIDEO_LIBRARY", "~/.local/share/marketing-agent-kit/video-library")))
+
 TEMPLATE = """\
 # marketing-agent-kit — API keys. This file stays on your machine (chmod 600).
 # Never commit it. Never paste keys into a chat: chats are saved to disk.
@@ -43,11 +53,17 @@ TEMPLATE = """\
 PARALLEL_API_KEY=            # platform.parallel.ai            → connections/parallel-api.md
 SEARCHAPI_KEY=               # searchapi.io dashboard          → connections/searchapi.md
 AHREFS_MCP_KEY=              # Ahrefs → Account → API keys → Generate MCP key → connections/ahrefs-mcp.md
-AHREFS_API_KEY=              # optional, Enterprise API v3 key (scripts only)
+AHREFS_API_KEY=              # optional: API v3 key, Lite plan and up (scripts: ahrefs_api.py, kw.py)
+
+# SEO (site config: ~/.config/marketing-agent-kit/seo/<site>.toml → connections/search-console.md)
+CRUX_API_KEY=                # free Google Cloud key, Chrome UX Report API → connections/crux-api.md
+BING_WMT_API_KEY=            # Bing Webmaster Tools → Settings → API access → connections/bing-webmaster.md
+SLACK_WEBHOOK_URL=           # optional: incoming webhook for the weekly SEO post → connections/slack.md
 
 # Creative
 OPENAI_API_KEY=              # platform.openai.com/api-keys    → connections/openai-images-api.md
 ELEVENLABS_API_KEY=          # elevenlabs.io/app/settings/api-keys → connections/elevenlabs-api.md
+ATLAS_API_KEY=               # optional: Atlas Cloud, generated people and scenes → connections/atlas-cloud.md
 
 # Analytics (Google uses your gcloud login, not a key — see connections/ga4-mcp.md)
 GOOGLE_CLOUD_PROJECT=        # your Google Cloud project id
@@ -76,9 +92,7 @@ def read_env() -> dict:
             v = env_value(v)
             if v:
                 vals[k.strip()] = v
-    for k in list(vals) + ["PARALLEL_API_KEY", "SEARCHAPI_KEY", "AHREFS_MCP_KEY", "AHREFS_API_KEY",
-                           "OPENAI_API_KEY", "ELEVENLABS_API_KEY", "STRIPE_AGENT_KEY",
-                           "GOOGLE_CLOUD_PROJECT", "GA4_PROPERTY_ID", "GOOGLE_ADS_LOGIN_CUSTOMER_ID"]:
+    for k in list(vals) + KEYS:
         if os.environ.get(k):
             vals[k] = os.environ[k]          # env vars win over the file
     return vals
@@ -150,6 +164,27 @@ def live_check(name, key):
         code, _ = http("https://api.ahrefs.com/v3/subscription-info/limits-and-usage",
                        {"Authorization": f"Bearer {key}"})
         return code == 200, "accepted" if code == 200 else f"HTTP {code}"
+    if name == "CRUX_API_KEY":
+        code, _ = http("https://chromeuxreport.googleapis.com/v1/records:queryRecord",
+                       {"X-Goog-Api-Key": key, "Content-Type": "application/json"},
+                       json.dumps({"origin": "https://www.google.com"}).encode(), "POST")
+        return code == 200, "accepted" if code == 200 else f"HTTP {code} (is the Chrome UX Report API enabled?)"
+    if name == "BING_WMT_API_KEY":
+        # Bing Webmaster takes the key only as a query parameter
+        code, body = http("https://ssl.bing.com/webmaster/api.svc/json/GetUserSites?apikey="
+                          + urllib.parse.quote(key))
+        if code == 200:
+            try:
+                return True, f"accepted, {len(json.loads(body).get('d') or [])} site(s)"
+            except ValueError:
+                return True, "accepted"
+        return False, "rejected" if b"InvalidApiKey" in (body or b"") else f"HTTP {code}"
+    if name == "ATLAS_API_KEY":
+        # a job id that can't exist: 404 = key accepted, 401 = key rejected
+        code, _ = http("https://api.atlascloud.ai/api/v1/model/prediction/kit_doctor_check",
+                       {"Authorization": f"Bearer {key}", "Accept": "application/json",
+                        "User-Agent": "Mozilla/5.0"})
+        return code == 404, {404: "accepted", 401: "rejected (401)"}.get(code, f"HTTP {code}")
     return None, "checked inside Claude (/mcp) — not called from scripts"
 
 
@@ -212,8 +247,10 @@ def cmd_doctor(a) -> None:
     ok, warn, bad = "✓", "·", "✗"
     print("Tools")
     tools = [("python3", "all scripts", ("--version",)), ("node", "Playwright MCP (18+), HyperFrames (22+)", ("--version",)),
-             ("npx", "Playwright MCP, HyperFrames", ("--version",)), ("ffmpeg", "ads-video-library, HyperFrames", ("-version",)),
-             ("ffprobe", "ads-video-library", ("-version",)), ("gcloud", "GA4, Google Ads, BigQuery", ("--version",)),
+             ("npx", "Playwright MCP, HyperFrames", ("--version",)),
+             ("ffmpeg", "video skills, ads-video-library, HyperFrames", ("-version",)),
+             ("ffprobe", "video skills, ads-video-library", ("-version",)),
+             ("uv", "SEO skills (gsc-insights, seo-tech-audit, ahrefs kw.py), sound-library venv", ("--version",)), ("gcloud", "GA4, Google Ads, BigQuery", ("--version",)),
              ("pipx", "GA4 MCP, Google Ads MCP", ("--version",)), ("claude", "registering MCP servers", ("--version",)),
              ("higgsfield", "Higgsfield (optional)", ("--version",))]
     for cmd, why, args in tools:
@@ -226,9 +263,7 @@ def cmd_doctor(a) -> None:
         if mode != "0o600":
             print(f"  {bad} permissions are {mode[2:]}, should be 600 — run: chmod 600 {ENV}")
     vals = read_env()
-    for k in ["PARALLEL_API_KEY", "SEARCHAPI_KEY", "AHREFS_MCP_KEY", "AHREFS_API_KEY", "OPENAI_API_KEY",
-              "ELEVENLABS_API_KEY", "STRIPE_AGENT_KEY", "GOOGLE_CLOUD_PROJECT", "GA4_PROPERTY_ID",
-              "GOOGLE_ADS_LOGIN_CUSTOMER_ID"]:
+    for k in KEYS:
         v = vals.get(k)
         if not v:
             print(f"  {warn} {k:<29} not set")
@@ -241,7 +276,25 @@ def cmd_doctor(a) -> None:
             mark = ok if good else (warn if good is None else bad)
         print(f"  {mark} {k:<29} {line}")
     if not a.live:
-        print("  (add --live to test each key with a free request)")
+        print("  (add --live to test each key with a free request; SLACK_WEBHOOK_URL is never tested — "
+              "a test would post a message)")
+
+    print("\nSEO site configs  (" + str(SEO_DIR) + ")")
+    sites = sorted(SEO_DIR.glob("*.toml")) if SEO_DIR.is_dir() else []
+    if sites:
+        for t in sites:
+            print(f"  {ok} {t.stem}")
+    else:
+        print(f"  {warn} none — gsc-insights, seo-tech-audit and ahrefs kw.py need one "
+              "(skills/gsc-insights/references/config.md)")
+
+    print("\nVideo sound library  (" + str(VIDEO_LIBRARY) + ")")
+    if (VIDEO_LIBRARY / "catalog" / "sfx.json").exists():
+        venv = (VIDEO_LIBRARY / "tools" / ".venv" / "bin" / "python").exists()
+        print(f"  {ok} installed" + ("" if venv else
+              f"\n  {warn} analysis venv missing — run: python3 skills/video-sound/scripts/library.py venv"))
+    else:
+        print(f"  {warn} not installed — run: python3 skills/video-sound/scripts/library.py install")
 
     print("\nGoogle login (GA4 / Ads / BigQuery)")
     print("  " + google_status())

@@ -1,7 +1,7 @@
 ---
 name: competitor-research
 description: >-
-  Full competitor deep-dive on a company by its domain — site parsing (products, customers, pricing), community sentiment, ads from transparency libraries, SEO, team, PR, Parallel deep research — ending in a knowledge base and an HTML report with satellite pages. Use for "research competitor X", "full dossier on X", "build a knowledge base on X", "competitor teardown of X". For a single layer use the narrower skills instead (ads-parser, ahrefs-seo, parallel-research).
+  Full competitor deep-dive on a company by its domain — site parsing (products, customers, pricing), community sentiment, ads from transparency libraries, SEO, team, PR, Parallel deep research — ending in a knowledge base and an HTML report with satellite pages. Use for "research competitor X", "full dossier on X", "build a knowledge base on X", "competitor teardown of X". For a single layer use the narrower skills instead (ads-parser, ahrefs, parallel-research).
 ---
 
 # Competitor research — the full pipeline
@@ -10,7 +10,7 @@ A multi-skill: it orchestrates the whole pipeline and uses three sub-skills on t
 
 - **parallel-research** — deep-research tasks (briefs, submit, background polling);
 - **ads-parser** — ads from LinkedIn, Google and Meta libraries (and the LinkedIn traps);
-- **ahrefs-seo** — SEO data.
+- **ahrefs** — SEO data (quick lookups for a domain).
 
 Keys needed: `PARALLEL_API_KEY`, `SEARCHAPI_KEY`, `AHREFS_MCP_KEY` (see `connections/`). The pipeline still works without Ahrefs — the SEO layer becomes a gap in the report.
 

@@ -15,14 +15,15 @@ New skills are welcome too. Open a [discussion](https://github.com/tymoshenko-dm
 
 1. Fork the repository and make a branch.
 2. Keep one change per pull request.
-3. Test it: run the skill on a real task in Claude Code, and run any script you touched.
+3. Test it: run the skill on a real task in Claude Code, and run any script you touched. SEO scripts have a test suite: `sh tests/seo/run_tests.sh` (see `tests/README.md`).
 4. Never commit API keys, client data or research output (`raw/`, `dist/`, catalogues).
 5. Open the pull request and say what you changed, why, and how you tested it.
 
 ## Skill style
 
 - `SKILL.md` stays short. Long material goes to `references/`.
-- Scripts use the Python standard library where possible.
+- Scripts use the Python standard library where possible. A script that needs packages declares them inline and runs with `uv run --script` (the SEO skills do this).
+- Code from another project keeps its licence header and gets a row in `THIRD_PARTY_NOTICES.md`. Noncommercial or unclear licences: take the idea, write your own code.
 - Keys are read from `~/.config/marketing-agent-kit/.env`, never from the chat.
 - Plain English: a stranger should understand each line in one read.
 
