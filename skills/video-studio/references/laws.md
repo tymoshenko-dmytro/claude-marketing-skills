@@ -22,7 +22,8 @@ law under test says so and names the test.
   call."), literal wording over clever. Shorten, don't punch up.
 - **Every claim is grounded.** Names, numbers, capabilities, quotes - must appear in the
   product, its UI, the brief or the project's own files. Tone, framing, jokes, connective
-  lines may be invented. No invented standards (WCAG, SOC 2, GDPR...). Run the claim read
+  lines may be invented. Material shown as somebody's (a rival's ads, a customer's page) comes from
+  the same sources as the numbers next to it. No invented standards (WCAG, SOC 2, GDPR...). Run the claim read
   on every language version: translation quietly strengthens claims. [latent-spaces/brag
   claim-grounding check]
 - **Reference sent = copy it to the maximum** - arc, style, pace, devices. Not copied:
@@ -99,6 +100,31 @@ law under test says so and names the test.
   nobody watching asked for it. [a speech-product promo, v1 → v6]
 - **Time stamps next to text are pills with margins on both sides**, placed before the piece they
   belong to; a bare superscript glues to the next word. [a speech-product promo]
+
+- **A film is not a slideshow.** One layout repeated per scene (a header card over a data card), held
+  ~5 s with one or two things moving, reads as slides, however clean each card is. Zooming a
+  picture inside the slide or swiping the slide does not fix it. Fix the structure: one world and
+  one camera, places in it, transitions that carry an object; nothing holds still longer than
+  ~1 s. [a world film, 2026-10-23; recipe `format-world.md`]
+- **The UI matches the world.** When the film has a drawn world (pixel, paper, clay...), every
+  panel, font, icon, cursor, logo and subtitle is made in that world's style and palette. Generic
+  app cards pasted into a styled world are rejected on sight. [a world film]
+- **Two fonts at most**: one display face in the film's style, one reading face. A third face reads
+  as noise. Choose the pair on stills of one real scene (3-5 pairs side by side), not on a render.
+  Read every letter and digit of the chosen faces at phone size. [a world film]
+- **A number on screen carries its meaning.** "0 clicks" alone is a riddle; "11,761 times shown in
+  Google, 352 clicks" is a finding. A label that needs the voice to make sense ("Test: sell to one
+  person on their calls") is rewritten until it reads alone. [a world film]
+- **Material sits on a surface and is acted on.** Numbers and cards do not hang over an empty
+  background: they stand on a board, a screen, a wall, a desk. When the film has characters, they
+  touch the material (carry it, jump on it, strike it, point at it), and they never cover the
+  number they point at. [a world film]
+- **No gap in the voice with nothing meaningful on screen.** A character running across an empty
+  room for 2 s while the voice pauses was flagged. Each gap gets an action that adds meaning.
+  [a world film]
+- **Look first, motion second.** For a new look, get approval on three style frames, then on a
+  rough animatic with the final voice and the camera, before any polish. The user judges pace
+  and motion, which a storyboard cannot show. [a world film]
 
 ## Sound
 

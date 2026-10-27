@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.1.0 (2026-10-27)
+
+A new launch film, and what the video team learned making it.
+
+### New
+- **The launch film, *Claude Growth Team*** (66 s, attached to this release, at the top of the README): one request goes round the whole loop, research, strategy, launch and analysis, on a pixel island where the agents work. Made with the kit's video skills: five animatic rounds, the gates, and three independent reviewers.
+- **`video-studio`: the world-film format** (`references/format-world.md`) for a film about a team, a system or a process: one generated world with a place per stage, interiors where the work sits on a board, a cast drawn in code, and characters who carry the work between places. It holds the order of work (style frames, then a rough animatic with the voice, then polish) and the rules the owner's notes produced.
+- **New house laws** (`laws.md`): a film is not a slideshow; the UI matches the world; two fonts at most, chosen on stills and read letter by letter; a number on screen carries its meaning; material sits on a surface and is acted on; no gap in the voice without a meaningful action; look first, motion second. Material shown as a rival's comes from the same sources as its numbers.
+
+### Changed
+- README: 20 agents. The Copy Critic has its own row (it was always its own agent file).
+- A new cover in the film's pixel style.
+- `video-moves`: "World moves": a dive into a place, a camera along a traced road, a carrier that the camera follows.
+- `video-build`: twelve traps from the film, among them a text-fit check at build time, a font the browser drops without an error, hidden elements that fade in from t=0, typed text that must reset when frames render out of order, and `<video>` walls.
+- `video-sound`: synthesised effects for a stylised world, levelled by measured loudness and kept off every word onset.
+- `video-check`: the grounding read covers material shown as somebody's; how to read the reading-time report on typed text.
+
 ## v2.0.0 (2026-10-21)
 
 Two new teams: SEO (four skills) and video (seven skills). Nineteen agents in all, twenty skills.

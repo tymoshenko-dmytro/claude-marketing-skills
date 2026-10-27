@@ -325,3 +325,50 @@ Contents: 01 Pan · 02 Tilt · 03 Dolly in · 04 Zoom · 05 Tracking · 06 Orbit
   phrase, never mid-word.
 - **Sound**: A's sound, faded.
 - **Example**: the speaker's last line finishing over the end card.
+
+---
+
+# World moves (beyond the 24)
+
+Moves for a film set in one drawn world (a map with places, interiors, characters); recipe:
+video-studio `format-world.md`. Proven on a world film (the kit's own launch film, 2026-10-23).
+
+## W1 Dive into a place
+
+- **Tells**: we go inside the place on the map where this stage happens. It replaces the cut
+  between the map and an interior.
+- **Build**: the camera key on the house zooms the world 2.4 → 5.2 with a blur rising to 6 px
+  over ~0.35 s. In the same window the interior layer (a full-frame room picture plus its work)
+  fades in from 0 and scales 1.22 → 1 about its centre (transform-origin 50% 45%). The exit is the
+  reverse: the room scales to 0.55 and fades over 0.35 s while the world sharpens and pulls back
+  to 2.4.
+- **Reads when**: the house is at the centre of the frame before the dive, so the room seems to
+  come out of it.
+- **Traps**: text on the room's board appears only after the room has settled (+0.4 s). A push
+  onto the board inside the room starts after that too, or the scale jumps (cut-seam scan:
+  FLASH). A long room scene still needs motion inside it: the dive does not carry 12 s.
+- **Sound**: a short two-note "door" synth on the room's first frame.
+
+## W2 Along the road
+
+- **Tells**: the loop is a real path; stage → stage is a journey, clockwise.
+- **Build**: an "arc" camera key interpolates the angle around the road's centre, not x/y. Lean on
+  the road: `cx = lerp(road(θ), straight(θ), 1 - 0.75·sin(πu))`, so the camera follows the road
+  mid-way and lands exactly on the next key. Lift the zoom by 16% mid-way
+  (`z *= 1 - 0.16·sin(πu)`) to see more of the road while travelling.
+- **Trap**: never assume the road is an ellipse. Trace its centreline from the picture: a colour
+  mask, runs along rays from the centre, a robust Fourier fit, one point per degree. The assumed
+  ellipse was 19 px off and the owner saw that "the ring does not follow the road". Re-trace after
+  any redraw of the art.
+
+## W3 The carrier
+
+- **Tells**: the work moves from one team to the next; the result of one stage is the input of the
+  next.
+- **Build**: a small character is placed at the camera's road point every frame. It walks (frames
+  alternate at 8 fps) and faces the direction of travel, from the road's tangent. Its item sits at
+  hand height on the side it faces, not over its head. It fades in and out over 0.15 s at the
+  ends. The same character's sprite at its home door is hidden while it is away.
+- **Reads when**: the item it carries is the item that left the last room (a case, a scroll, a
+  crate), and the next room starts with the character putting it down.
+- **Sound**: soft footsteps (a low-passed noise tick at ~7/s) at texture level.

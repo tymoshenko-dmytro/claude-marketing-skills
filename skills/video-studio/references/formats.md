@@ -8,6 +8,7 @@ then the notes live in that film's own notes.
 |---|---|---|---|
 | Motion card | end card, title/CTA/offer card, logo sting, lower third, UI panel with animated text; 3-15 s, exact text | video-build (HyperFrames, one paused GSAP timeline) | `format-motion-card.md` |
 | Launch film | 15-25 s film of a product, project or site: hook → reveal → 2-3 highlights → punchline | video-build (HyperFrames, from the product's own UI) + video-moves | `format-launch.md` |
+| World film | 45-90 s film of a team, system or process as a place where characters work: a map, interiors, a cast that carries the work; when cards would read as a slideshow | video-build (HyperFrames, one camera over a generated world) + video-moves + generated art | `format-world.md` |
 | Generated film | people, rooms, objects that do not exist as footage; dialogue films | Atlas Cloud (Seedance 2.0, OmniHuman 1.5, Nano Banana Pro) + HyperFrames assembly | the **video-generated** skill |
 | Reference copy | "make it like this ad" | whichever of the above the reference needs | `format-reference-copy.md` |
 

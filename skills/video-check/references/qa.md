@@ -12,6 +12,8 @@ without it once - or, for lines marked (borrowed), because another studio's did.
    question: does the product (its files, UI, output, the product brief) say this? Names, numbers,
    features, quotes must be found; tone and jokes may be invented. `check` has no opinion
    on copy - "Ships 10x faster" passes it clean. Repeat per language version.
+   The same for material shown as somebody's (a rival's ads, a customer's page): it comes from the
+   sources behind the numbers next to it.
 2. **Voice gate.** `gen_voice.py --must <names>` passed: every line transcribed, every
    name heard verbatim.
 3. **`npx hyperframes check`** - lint, runtime, layout, contrast. Fix errors; contrast
@@ -26,6 +28,9 @@ without it once - or, for lines marked (borrowed), because another studio's did.
    text under 24 px (UI chrome); live UI text it flags (a transcript streaming in a panel)
    is read by judgement - mark it `data-noread` if it is not meant to be read. Takes seconds;
    on a 32 s launch film: 3 short lines found, all three confirmed on rendered frames.
+   **Typed text** (a line typed character by character) shows one SHORT row per frame of typing.
+   Judge only the final string: drop every row whose text is a prefix of a longer row (on a 66 s
+   world film, 141 of 198 rows were typing frames).
 5. **Stills, including mid-transitions** - `scripts/stills.py <project> t1 t2 ...`. Look
    for: an element visible before its entrance (a `fromTo` with `immediateRender:false`
    shows its natural state until it starts - hide it in CSS), two motions at once, a

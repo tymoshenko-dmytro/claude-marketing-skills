@@ -1,7 +1,7 @@
 {
   "name": "marketing-agent-kit",
   "displayName": "Claude Marketing Skills",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "An AI growth team for Claude Code: competitor research, ad libraries, a full SEO team (Search Console, technical audits, Ahrefs keyword research, playbooks), GA4, funnel screenshots, ad images, a video studio (voice, music, HyperFrames, camera moves, 3D, generated shots, QA) and copy review, working on your real data.",
   "author": {
     "name": "Dmytro Tymoshenko",

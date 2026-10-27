@@ -398,3 +398,60 @@ on rendered frames.
 
 **A Google Fonts `<link>` is not flagged on 0.8.157** (nanoclip saw `google_fonts_import` on
 0.8.4). The scaffold's link stays.
+
+## Found on a world film (2026-10-23)
+
+**Measure every text box at build time.** Read advance widths with fontTools, wrap the words, and
+fail the build when a line needs more lines or more width than its box, or when a panel (with its
+border) leaves its board. Use the same font files the `@font-face` rules load; for a label that
+mixes two faces (pixel words, mono digits), sum the widths per character. This found six overflows
+before the first render and kept "text runs out of its frame" from coming back through five rounds.
+
+**A font the browser rejects fails silently.** A pixel font with a cmap entry one past its last
+glyph was dropped by Chrome's OTS ("Range glyph reference too high") and the fallback font was drawn.
+The only trace was a console warning inside `hyperframes check`. Read the font warnings; to fix such a
+font, keep one format-4 cmap built from `getBestCmap()` and save it again with fontTools.
+
+**Keyframe lists that a script builds must be sorted by time.** A key added later in the script with an
+earlier time made the element interpolate from t=0: a box faded in over 55 s and a row never showed.
+Sort every list once before writing the page (a stable sort keeps same-time keys in order).
+
+**A hidden element ramps in from t=0.** With per-property interpolation, an element whose first key is
+`{o: 0}` at t=0 and whose next opacity key is a visible value at 58 s fades in over 58 s: faint (0.3 at
+30 s) and visible only on full-size stills. Before writing the page, insert a hidden key 0.12 s before
+every first visible key that is more than 0.5 s after t=0, and print the elements it held.
+
+**Reset typed text and counters before their start.** The renderer can draw frames out of order. A line
+typed at 58 s kept its full text when an earlier frame was drawn later, and `check` reported overlaps
+from text that should not exist yet. In the render function, set typed text to "" and a counter to its
+start value when `t < t0`.
+
+**Hidden text still counts for the overlap check.** An element at opacity 0 was flagged for its caret
+overlapping board text. When an element is hidden at those times, mark it `data-layout-allow-overlap`
+and say why in a comment.
+
+**No `//` comments inside generated one-line JS.** A comment pasted into the middle of a one-line
+`forEach` hid the rest of it, and `check` reported `invalid_inline_script_syntax`.
+
+**A flex container trims the space after an inline `<span>`.** "6 RIVAL OFFERS" with the digit in its own
+span (a second face) rendered as "6RIVAL OFFERS" inside a `display:flex` chip. Wrap the whole label in
+one `<span>` inside the flex container.
+
+**A wall of `<video>` tiles.** Each tile is its own `<video>` with exact `data-start` and `data-duration`
+(frame / 30) and its own `data-track-index`; its first frame sits under it as an `<img>`, so the tile is
+never black before its window starts. Pre-cut each clip to the tile size at 30 fps
+(`scale=…:force_original_aspect_ratio=increase,crop=…`, `-an`, `-g 15`). Fourteen 3.2 s tiles rendered
+without issues. Fade a screen out before its clip ends, or the poster under it flashes for two frames.
+
+**Logos as pixel art.** Render the SVG to a transparent PNG with headless Chrome
+(`--default-background-color=00000000`), downscale to 16×16 with alpha thresholding, quantise to a few
+colours, recolour to the brand, and draw it with `image-rendering: pixelated`. A smooth downscale next to
+hard-palette logos looks soft.
+
+**Characters in front of boards.** Inside a room layer, later elements paint over earlier ones; give
+characters a z-index above the boards and the item they carry one more. Then assert in the build that a
+character on its spot does not cover a number.
+
+**Sprite facing comes from the keyframes.** Take each sprite's x keys in time order: a move to the right
+faces right, a move to the left faces left, and the facing holds until it moves again. Without this,
+characters walked backwards.
