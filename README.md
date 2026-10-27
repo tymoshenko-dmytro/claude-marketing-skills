@@ -4,17 +4,19 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#installation)
 
-Claude Code skills that turn Claude into an AI growth team. Nineteen agents research competitors, pull ads from the public libraries, run SEO from Search Console data to technical audits and keyword research, read GA4, screenshot funnels, make ad images, produce videos with voice, music and 3D, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one. Install them as a Claude Code plugin or with `npx skills`.
+Claude Code skills that turn Claude into an AI growth team. Twenty agents research competitors, pull ads from the public libraries, run SEO from Search Console data to technical audits and keyword research, read GA4, screenshot funnels, make ad images, produce videos with voice, music and 3D, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one. Install them as a Claude Code plugin or with `npx skills`.
 
 Works with [Claude Code](https://code.claude.com) and any agent that supports the [Agent Skills](https://agentskills.io) format.
 
 Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Head of Growth at Palabra.ai and ex-CEO of Eightify.
 
-https://github.com/user-attachments/assets/116f521c-f7db-45c3-a646-270dd013aecc
+[![Claude Growth Team: one request runs the whole loop, from research to the next week's task. 66 seconds, sound on](docs/images/film-poster.jpg)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.1.0/claude-growth-team.mp4)
 
-*The first ten agents at work, from competitor research to ads to analytics, in 70 seconds (v0.2). Sound on.*
+*The team at work in 66 seconds: one request goes round the whole loop, research, strategy, launch and analysis, and the weekly report starts the next one. The film was made with the kit's own video skills. Sound on.*
 
-**The v2 film** (57 s): an SEO audit turned into a developer ticket, keyword research turned into a content plan, and the film that made itself. [Watch it](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.0.0/claude-marketing-skills-v2.mp4) · [with voiceover](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.0.0/claude-marketing-skills-v2-voice.mp4)
+Earlier films: [v2 (57 s)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.0.0/claude-marketing-skills-v2.mp4) · [v0.2 (70 s)](https://github.com/user-attachments/assets/116f521c-f7db-45c3-a646-270dd013aecc)
+
+**New in v2.1:** a world-film recipe in the video studio, learned on the film above: one drawn world, a cast of characters and one camera instead of a run of slides. [What changed →](CHANGELOG.md)
 
 **New in v2.0:** an SEO team of four (Search Console archive and weekly report, technical audit with a developer backlog, Ahrefs keyword research, SEO playbooks) and a video studio of seven (voice and sound, HyperFrames builds, 24 camera moves, three.js 3D, generated shots, QA). [What changed →](CHANGELOG.md)
 
@@ -31,7 +33,7 @@ You can write a skill in an evening. Making one that works on real data takes mo
 - **They work as one team.** The research lead runs the researcher, the paid-media analyst and the SEO researcher together. The head of SEO routes every SEO question to the right specialist. The video producer runs six specialists in a fixed order, and nothing ships before the QA reviewer passes it.
 - **They are templates.** Every skill ends with an **Adapt it** section, so it learns your rules, your site, your funnel and your brand.
 
-## Meet the team: 19 AI marketing agents
+## Meet the team: 20 AI marketing agents
 
 ![Claude Marketing Skills: agents with job titles, each a Claude Code skill](docs/images/cover.png)
 
@@ -77,7 +79,8 @@ You can write a skill in an evening. Making one that works on real data takes mo
 
 | Agent | Skill | What it does | Works with |
 |---|---|---|---|
-| **Senior Marketing Copywriter** | [`plain-copy`](skills/plain-copy/) + [`copy-critic`](agents/copy-critic.md) | Rewrites copy so a stranger understands it in one read. A critic agent gives every line a verdict and a rewrite | none |
+| **Senior Marketing Copywriter** | [`plain-copy`](skills/plain-copy/) | Rewrites copy so a stranger understands it in one read | none |
+| **Copy Critic** | [`copy-critic`](agents/copy-critic.md) | Reads every line the way a stranger would, gives it a verdict, and hands back the rewrite | none |
 | *Onboarding* | [`connect`](skills/connect/) | Sets up keys, Google login, Search Console, MCP servers and the sound library, then runs a health check | none |
 
 ## How the team works together

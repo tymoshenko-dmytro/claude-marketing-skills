@@ -147,6 +147,25 @@ Check after mixing: `$PY scripts/sfxcheck.py timeline.json` says for every effec
 heard (in a pause over the bed, or cutting through speech) or masked, and flags a sound on a
 first syllable or a tail under speech. Mark wanted texture `"role": "texture"` in its event.
 
+## Synth effects for a stylised world
+
+A drawn world (pixel, toy, paper) sounds right with effects made for it, not with library UI
+clicks. Proven on a world film (2026-10-23).
+- **Synthesise them**: square, triangle and noise in numpy, a few lines per sound: hop (a rising
+  square sweep), land (a low noise thump), pop, pin, click, blip, door (two notes), spring (an
+  arpeggio), strike (high noise), fail (two low notes), pass (a rising arpeggio), approve (a coin),
+  a chime per stage on C-E-G-C, and runs (typing, a counter, footsteps) made for each cue's length.
+- **Cue them from the build.** The build writes a cue list: every hop, landing, pin, typed line
+  and counter adds its own cue, so sound and picture cannot drift apart.
+- **Level them by measured RMS, not sfxauto.** sfxauto's band model was built for library sounds
+  and put these dense waveforms anywhere from -24 to -63 dB. Measure each file's RMS over its
+  active part and set the gain to a target: about 12 dB under the voice level in a gap, about
+  27 dB under it as texture under the voice. Runs (typing, steps) go 4 dB lower than one-shots.
+- **Keep them off every word onset**, not only a line's first syllable: drop a cue that falls
+  0.12 s before to 0.15 s after any word onset (word times from the voice takes); a door, spring
+  or click may move up to 0.35 s earlier into a clear moment. sfxcheck then showed no effect over
+  the voice.
+
 ## To try (borrowed, not yet proven here)
 
 From lemo-opuscar's directing notes (MIT). Try them on the next film; whatever survives
