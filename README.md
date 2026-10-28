@@ -4,38 +4,15 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#installation)
 
-
 https://github.com/user-attachments/assets/81a236a7-40fb-4f4c-8547-6c34cb9c514a
 
+*The team at work in 66 seconds: one request goes round the whole loop, research, strategy, launch and analysis, and the weekly report starts the next one. The film was made with the kit's own video skills. Sound on.*
 
 Claude Code skills that turn Claude into an AI growth team. Twenty agents research competitors, pull ads from the public libraries, run SEO from Search Console data to technical audits and keyword research, read GA4, screenshot funnels, make ad images, produce videos with voice, music and 3D, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one. Install them as a Claude Code plugin or with `npx skills`.
 
 Works with [Claude Code](https://code.claude.com) and any agent that supports the [Agent Skills](https://agentskills.io) format.
 
 Built by [Dmytro Tymoshenko](https://www.linkedin.com/in/tymoshenko-dmytro), Head of Growth at Palabra.ai and ex-CEO of Eightify.
-
-[![Claude Growth Team: one request runs the whole loop, from research to the next week's task. 66 seconds, sound on](docs/images/film-poster.jpg)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.1.0/claude-growth-team.mp4)
-
-*The team at work in 66 seconds: one request goes round the whole loop, research, strategy, launch and analysis, and the weekly report starts the next one. The film was made with the kit's own video skills. Sound on.*
-
-Earlier films: [v2 (57 s)](https://github.com/tymoshenko-dmytro/claude-marketing-skills/releases/download/v2.0.0/claude-marketing-skills-v2.mp4) · [v0.2 (70 s)](https://github.com/user-attachments/assets/116f521c-f7db-45c3-a646-270dd013aecc)
-
-**New in v2.1:** a world-film recipe in the video studio, learned on the film above: one drawn world, a cast of characters and one camera instead of a run of slides. [What changed →](CHANGELOG.md)
-
-**New in v2.0:** an SEO team of four (Search Console archive and weekly report, technical audit with a developer backlog, Ahrefs keyword research, SEO playbooks) and a video studio of seven (voice and sound, HyperFrames builds, 24 camera moves, three.js 3D, generated shots, QA). [What changed →](CHANGELOG.md)
-
-**Contributions welcome.** Found a fix or have a new skill? [Open a PR](CONTRIBUTING.md). Question or problem? [Open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues).
-
-## Why install these instead of writing your own?
-
-You can write a skill in an evening. Making one that works on real data takes months of fixing what goes wrong. These skills already contain those fixes:
-
-- **They do the work, not give advice.** Each skill connects to a real source (Search Console, Ahrefs, GA4, Meta, LinkedIn and Google ad libraries, Parallel, a real browser, OpenAI images, ElevenLabs, HyperFrames) and returns a file you can use: a dossier, a report, developer tickets, screenshots, images, a rendered video.
-- **They know the traps.** Each skill already handles the cases where an ad library, Ahrefs, Search Console or GA4 gives misleading data, and the render traps that cost a video a wasted hour.
-- **Every fact has a source.** Research skills link each claim to the page it came from. SEO numbers come from a script run in the same task, with their period, or the skill says the data is missing.
-- **Setup takes minutes.** The `connect` skill walks you through each key, keeps the keys out of the chat, and tests each one with a free request.
-- **They work as one team.** The research lead runs the researcher, the paid-media analyst and the SEO researcher together. The head of SEO routes every SEO question to the right specialist. The video producer runs six specialists in a fixed order, and nothing ships before the QA reviewer passes it.
-- **They are templates.** Every skill ends with an **Adapt it** section, so it learns your rules, your site, your funnel and your brand.
 
 ## Meet the team: 20 AI marketing agents
 
@@ -121,6 +98,10 @@ You can write a skill in an evening. Making one that works on real data takes mo
                          └─────────────────────────────────────┘
 ```
 
+## Read before you install
+
+Install only the skills you will use this month. Every installed skill adds its description to every conversation, and v2 has twenty. Then do the **Adapt it** part of each one: the skills work best once they hold your corrections, report rules, site config, funnel events and brand laws.
+
 ## Installation
 
 ### Option 1: Claude Code plugin (recommended)
@@ -183,6 +164,17 @@ Ask in plain words. Claude picks the right agent:
 
 You can also run a skill directly: `/competitor-research`, `/seo`, `/video-studio`.
 
+## Why install these instead of writing your own?
+
+You can write a skill in an evening. Making one that works on real data takes months of fixing what goes wrong. These skills already contain those fixes:
+
+- **They do the work, not give advice.** Each skill connects to a real source (Search Console, Ahrefs, GA4, Meta, LinkedIn and Google ad libraries, Parallel, a real browser, OpenAI images, ElevenLabs, HyperFrames) and returns a file you can use: a dossier, a report, developer tickets, screenshots, images, a rendered video.
+- **They know the traps.** Each skill already handles the cases where an ad library, Ahrefs, Search Console or GA4 gives misleading data, and the render traps that cost a video a wasted hour.
+- **Every fact has a source.** Research skills link each claim to the page it came from. SEO numbers come from a script run in the same task, with their period, or the skill says the data is missing.
+- **Setup takes minutes.** The `connect` skill walks you through each key, keeps the keys out of the chat, and tests each one with a free request.
+- **They work as one team.** The research lead runs the researcher, the paid-media analyst and the SEO researcher together. The head of SEO routes every SEO question to the right specialist. The video producer runs six specialists in a fixed order, and nothing ships before the QA reviewer passes it.
+- **They are templates.** Every skill ends with an **Adapt it** section, so it learns your rules, your site, your funnel and your brand.
+
 ## Claude Code skills by category
 
 ### Research and intelligence
@@ -210,10 +202,6 @@ You can also run a skill directly: `/competitor-research`, `/seo`, `/video-studi
 ### Copy
 - `plain-copy` and `copy-critic`: clear copy, a verdict and a rewrite for every line
 
-## Read before you install
-
-Install only the skills you will use this month. Every installed skill adds its description to every conversation, and v2 has twenty. Then do the **Adapt it** part of each one: the skills work best once they hold your corrections, report rules, site config, funnel events and brand laws.
-
 ## Keys and privacy
 
 All keys live in one file outside any repository: `~/.config/marketing-agent-kit/.env` (chmod 600). Never paste keys into a chat. SEO site configs live next to it in `~/.config/marketing-agent-kit/seo/`, the sound library in `~/.local/share/marketing-agent-kit/video-library`. Research output and catalogues are in `.gitignore`. [More on connections →](connections/README.md)
@@ -224,6 +212,13 @@ All keys live in one file outside any repository: `~/.config/marketing-agent-kit
 - [`uv`](https://docs.astral.sh/uv/) for the SEO scripts (they declare their own dependencies and need Python 3.11+, which `uv` fetches if missing) and the sound library's analysis environment
 - FFmpeg for the video skills and `ads-video-library`; Node.js 22+ and the HyperFrames skills for video; a Whisper CLI for the voice and transcript checks (`mlx-whisper` on Apple Silicon, `openai-whisper` elsewhere)
 - Node.js 18+ for Playwright MCP; `gcloud` + `pipx` for Google services; ~400 MB for `funnel-screenshots` (its setup installs Playwright and Chromium); ~150 MB for the sound library plus ~350 MB for its analysis environment
+
+## What's new
+
+- **v2.1:** a world-film recipe in the video studio: one drawn world, a cast of characters and one camera instead of a run of slides. The film at the top was made with it.
+- **v2.0:** an SEO team of four (Search Console archive and weekly report, technical audit with a developer backlog, Ahrefs keyword research, SEO playbooks) and a video studio of seven (voice and sound, HyperFrames builds, 24 camera moves, three.js 3D, generated shots, QA).
+
+[Full changelog →](CHANGELOG.md)
 
 ## Works well with
 
@@ -248,7 +243,7 @@ Good work by others. Read before installing, same rule as above.
 
 ## Contributing
 
-Found a way to improve a skill? Have a new one? See [CONTRIBUTING.md](CONTRIBUTING.md).
+Found a way to improve a skill? Have a new one? [Open a PR](CONTRIBUTING.md). Question or problem? [Open an issue](https://github.com/tymoshenko-dmytro/claude-marketing-skills/issues).
 
 ## License
 
