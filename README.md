@@ -4,6 +4,10 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#installation)
 
+
+https://github.com/user-attachments/assets/81a236a7-40fb-4f4c-8547-6c34cb9c514a
+
+
 Claude Code skills that turn Claude into an AI growth team. Twenty agents research competitors, pull ads from the public libraries, run SEO from Search Console data to technical audits and keyword research, read GA4, screenshot funnels, make ad images, produce videos with voice, music and 3D, and check every line of copy. Each one works on your real data, not on general advice. Use them to strengthen a growth team, or to run growth without one. Install them as a Claude Code plugin or with `npx skills`.
 
 Works with [Claude Code](https://code.claude.com) and any agent that supports the [Agent Skills](https://agentskills.io) format.
